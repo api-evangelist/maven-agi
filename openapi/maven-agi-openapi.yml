@@ -1,0 +1,1223 @@
+openapi: 3.0.3
+info:
+  title: Maven AGI Platform API
+  version: '1.0'
+  description: >-
+    The Maven AGI Platform API lets developers build apps on the Maven AGI
+    enterprise AI agent platform. It exposes conversations, knowledge,
+    actions, users, agents, events, triggers, app settings, and analytics.
+    Requests authenticate with an App ID and App Secret supplied as HTTP
+    Basic credentials, together with X-Organization-Id and X-Agent-Id
+    headers that scope the request to a specific organization and agent.
+    Paths in this document are relative to the /v1 base path.
+  contact:
+    name: Maven AGI
+    url: https://docs.mavenagi.com
+  license:
+    name: Proprietary
+servers:
+- url: https://www.mavenagi-apis.com/v1
+  description: Production
+- url: https://www.staging.mavenagi-apis.com/v1
+  description: Staging
+security:
+- appAuth: []
+tags:
+- name: Conversations
+- name: Knowledge
+- name: Actions
+- name: Users
+- name: Agents
+- name: Events
+- name: Triggers
+- name: App Settings
+- name: Analytics
+paths:
+  /conversations:
+    post:
+      tags: [Conversations]
+      operationId: initializeConversation
+      summary: Initialize a conversation
+      description: Create and initialize a new conversation for the agent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationRequest'
+      responses:
+        '200':
+          description: The initialized conversation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+  /conversations/{conversationId}:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    get:
+      tags: [Conversations]
+      operationId: getConversation
+      summary: Get a conversation
+      responses:
+        '200':
+          description: The requested conversation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+    patch:
+      tags: [Conversations]
+      operationId: patchConversation
+      summary: Patch a conversation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated conversation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+    delete:
+      tags: [Conversations]
+      operationId: deleteConversation
+      summary: Delete a conversation
+      responses:
+        '204':
+          description: Conversation deleted.
+  /conversations/{conversationId}/messages:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    post:
+      tags: [Conversations]
+      operationId: appendNewMessages
+      summary: Append new messages
+      description: Append one or more new messages to an existing conversation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated conversation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+  /conversations/{conversationId}/ask:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    post:
+      tags: [Conversations]
+      operationId: ask
+      summary: Ask the agent a question
+      description: >-
+        Send a user message and receive the agent's answer, including any
+        actions taken and knowledge referenced.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AskRequest'
+      responses:
+        '200':
+          description: The agent's response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationMessage'
+  /conversations/{conversationId}/ask_stream:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    post:
+      tags: [Conversations]
+      operationId: askStream
+      summary: Ask the agent a question (streaming)
+      description: >-
+        Same as ask, but streams the response back as Server-Sent Events for
+        low-latency, incremental delivery.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AskRequest'
+      responses:
+        '200':
+          description: A stream of response events.
+          content:
+            text/event-stream:
+              schema:
+                type: string
+  /conversations/{conversationId}/categorize:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    post:
+      tags: [Conversations]
+      operationId: categorizeConversation
+      summary: Categorize a conversation
+      responses:
+        '200':
+          description: Categorization result.
+          content:
+            application/json:
+              schema:
+                type: object
+  /conversations/{conversationId}/submit-form:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    post:
+      tags: [Conversations]
+      operationId: submitActionForm
+      summary: Submit an action form
+      description: Submit the collected parameters for an action form the agent presented.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated conversation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conversation'
+  /conversations/{conversationId}/metadata:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    post:
+      tags: [Conversations]
+      operationId: addConversationMetadata
+      summary: Add conversation metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+      responses:
+        '200':
+          description: The updated metadata.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+    put:
+      tags: [Conversations]
+      operationId: updateConversationMetadata
+      summary: Update conversation metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+      responses:
+        '200':
+          description: The updated metadata.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /conversations/feedback:
+    post:
+      tags: [Conversations]
+      operationId: createFeedback
+      summary: Create conversation feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created feedback.
+          content:
+            application/json:
+              schema:
+                type: object
+  /conversations/search:
+    post:
+      tags: [Conversations]
+      operationId: searchConversations
+      summary: Search conversations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching conversations.
+          content:
+            application/json:
+              schema:
+                type: object
+  /conversations/export:
+    post:
+      tags: [Conversations]
+      operationId: exportConversations
+      summary: Export conversations
+      responses:
+        '200':
+          description: Exported conversation data.
+          content:
+            application/json:
+              schema:
+                type: object
+  /conversations/deliver-message:
+    post:
+      tags: [Conversations]
+      operationId: deliverMessage
+      summary: Deliver a message
+      description: Deliver an outbound message to a conversation channel.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Delivery result.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge:
+    put:
+      tags: [Knowledge]
+      operationId: createOrUpdateKnowledgeBase
+      summary: Create or update a knowledge base
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeBaseRequest'
+      responses:
+        '200':
+          description: The created or updated knowledge base.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBase'
+  /knowledge/search:
+    post:
+      tags: [Knowledge]
+      operationId: searchKnowledgeBases
+      summary: Search knowledge bases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching knowledge bases.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/{knowledgeBaseReferenceId}:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    get:
+      tags: [Knowledge]
+      operationId: getKnowledgeBase
+      summary: Get a knowledge base
+      responses:
+        '200':
+          description: The requested knowledge base.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBase'
+    patch:
+      tags: [Knowledge]
+      operationId: patchKnowledgeBase
+      summary: Patch a knowledge base
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated knowledge base.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBase'
+  /knowledge/{knowledgeBaseReferenceId}/refresh:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags: [Knowledge]
+      operationId: refreshKnowledgeBase
+      summary: Refresh a knowledge base
+      responses:
+        '200':
+          description: Refresh accepted.
+  /knowledge/{knowledgeBaseReferenceId}/version:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags: [Knowledge]
+      operationId: createKnowledgeBaseVersion
+      summary: Create a knowledge base version
+      responses:
+        '200':
+          description: The created version.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/{knowledgeBaseReferenceId}/version/finalize:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags: [Knowledge]
+      operationId: finalizeKnowledgeBaseVersion
+      summary: Finalize a knowledge base version
+      responses:
+        '200':
+          description: The finalized version.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/{knowledgeBaseReferenceId}/cancel:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags: [Knowledge]
+      operationId: cancelKnowledgeBaseVersion
+      summary: Cancel a knowledge base version
+      responses:
+        '200':
+          description: Cancellation accepted.
+  /knowledge/{knowledgeBaseReferenceId}/versions:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    get:
+      tags: [Knowledge]
+      operationId: listKnowledgeBaseVersions
+      summary: List knowledge base versions
+      responses:
+        '200':
+          description: The list of versions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /knowledge/{knowledgeBaseReferenceId}/document:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags: [Knowledge]
+      operationId: createKnowledgeDocument
+      summary: Create a knowledge document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeDocumentRequest'
+      responses:
+        '200':
+          description: The created knowledge document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeDocument'
+  /knowledge/{knowledgeBaseReferenceId}/{knowledgeDocumentReferenceId}/document:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    - $ref: '#/components/parameters/KnowledgeDocumentReferenceId'
+    patch:
+      tags: [Knowledge]
+      operationId: patchKnowledgeDocument
+      summary: Patch a knowledge document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated knowledge document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeDocument'
+    delete:
+      tags: [Knowledge]
+      operationId: deleteKnowledgeDocument
+      summary: Delete a knowledge document
+      responses:
+        '204':
+          description: Knowledge document deleted.
+  /knowledge/documents/search:
+    post:
+      tags: [Knowledge]
+      operationId: searchKnowledgeDocuments
+      summary: Search knowledge documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching knowledge documents.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/versions/{knowledgeBaseVersionReferenceId}/documents/{knowledgeDocumentReferenceId}:
+    parameters:
+    - name: knowledgeBaseVersionReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    - $ref: '#/components/parameters/KnowledgeDocumentReferenceId'
+    get:
+      tags: [Knowledge]
+      operationId: getKnowledgeDocument
+      summary: Get a knowledge document
+      responses:
+        '200':
+          description: The requested knowledge document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeDocument'
+  /actions:
+    put:
+      tags: [Actions]
+      operationId: createOrUpdateAction
+      summary: Create or update an action
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionRequest'
+      responses:
+        '200':
+          description: The created or updated action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+  /actions/search:
+    post:
+      tags: [Actions]
+      operationId: searchActions
+      summary: Search actions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching actions.
+          content:
+            application/json:
+              schema:
+                type: object
+  /actions/{actionReferenceId}:
+    parameters:
+    - name: actionReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Actions]
+      operationId: getAction
+      summary: Get an action
+      responses:
+        '200':
+          description: The requested action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+    patch:
+      tags: [Actions]
+      operationId: patchAction
+      summary: Patch an action
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated action.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Action'
+    delete:
+      tags: [Actions]
+      operationId: deleteAction
+      summary: Delete an action
+      responses:
+        '204':
+          description: Action deleted.
+  /users:
+    put:
+      tags: [Users]
+      operationId: createOrUpdateUser
+      summary: Create or update a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: The created or updated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /users/{userId}:
+    parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Users]
+      operationId: getUser
+      summary: Get a user
+      responses:
+        '200':
+          description: The requested user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags: [Users]
+      operationId: deleteUser
+      summary: Delete a user
+      responses:
+        '204':
+          description: User deleted.
+  /agentusers/search:
+    post:
+      tags: [Users]
+      operationId: searchAgentUsers
+      summary: Search agent users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching agent users.
+          content:
+            application/json:
+              schema:
+                type: object
+  /agentusers/{agentUserId}:
+    parameters:
+    - name: agentUserId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Users]
+      operationId: getAgentUser
+      summary: Get an agent user
+      responses:
+        '200':
+          description: The requested agent user.
+          content:
+            application/json:
+              schema:
+                type: object
+  /agents:
+    post:
+      tags: [Agents]
+      operationId: createAgent
+      summary: Create an agent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created agent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+  /organizations/{organizationReferenceId}/agents:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationReferenceId'
+    get:
+      tags: [Agents]
+      operationId: listAgents
+      summary: List agents
+      responses:
+        '200':
+          description: The list of agents.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Agent'
+  /organizations/{organizationReferenceId}/agents/{agentReferenceId}:
+    parameters:
+    - $ref: '#/components/parameters/OrganizationReferenceId'
+    - name: agentReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Agents]
+      operationId: getAgent
+      summary: Get an agent
+      responses:
+        '200':
+          description: The requested agent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+    patch:
+      tags: [Agents]
+      operationId: patchAgent
+      summary: Patch an agent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated agent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agent'
+    delete:
+      tags: [Agents]
+      operationId: deleteAgent
+      summary: Delete an agent
+      responses:
+        '204':
+          description: Agent deleted.
+  /events:
+    post:
+      tags: [Events]
+      operationId: createEvent
+      summary: Create an event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created event.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+  /events/{eventId}:
+    parameters:
+    - name: eventId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Events]
+      operationId: getEvent
+      summary: Get an event
+      responses:
+        '200':
+          description: The requested event.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+  /events/search:
+    post:
+      tags: [Events]
+      operationId: searchEvents
+      summary: Search events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching events.
+          content:
+            application/json:
+              schema:
+                type: object
+  /events/export:
+    post:
+      tags: [Events]
+      operationId: exportEvents
+      summary: Export events
+      responses:
+        '200':
+          description: Exported event data.
+          content:
+            application/json:
+              schema:
+                type: object
+  /triggers:
+    put:
+      tags: [Triggers]
+      operationId: createOrUpdateTrigger
+      summary: Create or update a trigger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created or updated trigger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+  /triggers/{triggerReferenceId}:
+    parameters:
+    - name: triggerReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags: [Triggers]
+      operationId: getTrigger
+      summary: Get a trigger
+      responses:
+        '200':
+          description: The requested trigger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+    patch:
+      tags: [Triggers]
+      operationId: patchTrigger
+      summary: Partially update a trigger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated trigger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+    delete:
+      tags: [Triggers]
+      operationId: deleteTrigger
+      summary: Delete a trigger
+      responses:
+        '204':
+          description: Trigger deleted.
+  /app-settings:
+    get:
+      tags: [App Settings]
+      operationId: getAppSettings
+      summary: Get app settings
+      responses:
+        '200':
+          description: The app settings.
+          content:
+            application/json:
+              schema:
+                type: object
+    patch:
+      tags: [App Settings]
+      operationId: patchAppSettings
+      summary: Patch app settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated app settings.
+          content:
+            application/json:
+              schema:
+                type: object
+  /app-settings/search:
+    get:
+      tags: [App Settings]
+      operationId: searchAppSettings
+      summary: Search app settings
+      responses:
+        '200':
+          description: Matching app settings.
+          content:
+            application/json:
+              schema:
+                type: object
+  /tables/conversations:
+    post:
+      tags: [Analytics]
+      operationId: getConversationTable
+      summary: Get conversation analytics table
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The conversation table.
+          content:
+            application/json:
+              schema:
+                type: object
+  /charts/conversations:
+    post:
+      tags: [Analytics]
+      operationId: getConversationChart
+      summary: Get conversation analytics chart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The conversation chart.
+          content:
+            application/json:
+              schema:
+                type: object
+  /tables/events:
+    post:
+      tags: [Analytics]
+      operationId: getEventTable
+      summary: Get event analytics table
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The event table.
+          content:
+            application/json:
+              schema:
+                type: object
+  /tables/feedback:
+    post:
+      tags: [Analytics]
+      operationId: getFeedbackTable
+      summary: Get feedback analytics table
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The feedback table.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    appAuth:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic authentication using the App ID as the username and the App
+        Secret as the password. Requests must also send X-Organization-Id and
+        X-Agent-Id headers to scope the call to an organization and agent.
+  parameters:
+    ConversationId:
+      name: conversationId
+      in: path
+      required: true
+      schema:
+        type: string
+    KnowledgeBaseReferenceId:
+      name: knowledgeBaseReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    KnowledgeDocumentReferenceId:
+      name: knowledgeDocumentReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    OrganizationReferenceId:
+      name: organizationReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
+    ConversationRequest:
+      type: object
+      properties:
+        conversationId:
+          $ref: '#/components/schemas/EntityId'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationMessage'
+        subject:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    Conversation:
+      type: object
+      properties:
+        conversationId:
+          $ref: '#/components/schemas/EntityId'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationMessage'
+        subject:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    ConversationMessage:
+      type: object
+      properties:
+        conversationMessageId:
+          $ref: '#/components/schemas/EntityId'
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        text:
+          type: string
+        responseLength:
+          type: string
+          enum: [SHORT, MEDIUM, LONG]
+    AskRequest:
+      type: object
+      required: [conversationMessageId, userId, text]
+      properties:
+        conversationMessageId:
+          $ref: '#/components/schemas/EntityId'
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        text:
+          type: string
+        attachments:
+          type: array
+          items:
+            type: object
+    KnowledgeBaseRequest:
+      type: object
+      required: [knowledgeBaseId, name]
+      properties:
+        knowledgeBaseId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        type:
+          type: string
+    KnowledgeBase:
+      type: object
+      properties:
+        knowledgeBaseId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        type:
+          type: string
+        version:
+          type: object
+    KnowledgeDocumentRequest:
+      type: object
+      required: [knowledgeDocumentId, content]
+      properties:
+        knowledgeDocumentId:
+          $ref: '#/components/schemas/EntityId'
+        contentType:
+          type: string
+          enum: [MARKDOWN, HTML]
+        content:
+          type: string
+        title:
+          type: string
+    KnowledgeDocument:
+      type: object
+      properties:
+        knowledgeDocumentId:
+          $ref: '#/components/schemas/EntityId'
+        title:
+          type: string
+        content:
+          type: string
+    ActionRequest:
+      type: object
+      required: [actionId, name, description]
+      properties:
+        actionId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        description:
+          type: string
+        userInteractionRequired:
+          type: boolean
+        userFormParameters:
+          type: array
+          items:
+            type: object
+    Action:
+      type: object
+      properties:
+        actionId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        description:
+          type: string
+    UserRequest:
+      type: object
+      required: [userId]
+      properties:
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        identifiers:
+          type: array
+          items:
+            type: object
+        data:
+          type: object
+    User:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        defaultUserData:
+          type: object
+    Agent:
+      type: object
+      properties:
+        agentId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        environment:
+          type: string
+          enum: [DEMO, STAGING, PRODUCTION]
+    Event:
+      type: object
+      properties:
+        eventId:
+          $ref: '#/components/schemas/EntityId'
+        type:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        data:
+          type: object
+    Trigger:
+      type: object
+      properties:
+        triggerId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        description:
+          type: string
+        eventType:
+          type: string

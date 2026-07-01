@@ -1,0 +1,102 @@
+aid: maven-agi
+name: Maven AGI
+review:
+  question: Does Maven AGI expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-01'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    The Maven AGI Platform API is a REST/HTTPS API. The one real-time
+    surface is the conversation ask_stream endpoint, delivered as HTTP
+    Server-Sent Events (SSE), not WebSocket. No AsyncAPI document was
+    authored in this pass; if SSE modeling is desired later, the
+    ask_stream channel is the candidate to describe.
+findings:
+  summary: |
+    Maven AGI does not publish a documented public WebSocket API. The Maven
+    Platform API is REST over HTTPS with a base URL of
+    https://www.mavenagi-apis.com/v1 (staging at
+    https://www.staging.mavenagi-apis.com/v1). Requests authenticate with an
+    App ID and App Secret sent as HTTP Basic credentials, plus X-Organization-Id
+    and X-Agent-Id headers that scope each call to an organization and agent.
+    The only streaming surface is POST /v1/conversations/{id}/ask_stream, which
+    returns Server-Sent Events (a one-way HTTP transport), not WebSocket. All
+    other endpoints are request/response REST. Endpoint paths in this review
+    were confirmed against the official Maven AGI SDKs (mavenagi-python and the
+    sibling Node/Java/Go/.NET clients), which are Fern-generated from Maven's
+    API definition.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://www.mavenagi-apis.com/v1
+      documented: true
+    - protocol: SSE
+      scheme: https
+      note: Server-Sent Events on POST /v1/conversations/{id}/ask_stream. Not WebSocket.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in the Maven AGI Platform API or SDKs as of the review date.
+  authentication:
+    scheme: HTTP Basic
+    credentials: App ID (username) + App Secret (password)
+    additionalHeaders:
+      - X-Organization-Id
+      - X-Agent-Id
+  endpointsConfirmedRest:
+    - POST   https://www.mavenagi-apis.com/v1/conversations
+    - GET    https://www.mavenagi-apis.com/v1/conversations/{conversationId}
+    - PATCH  https://www.mavenagi-apis.com/v1/conversations/{conversationId}
+    - DELETE https://www.mavenagi-apis.com/v1/conversations/{conversationId}
+    - POST   https://www.mavenagi-apis.com/v1/conversations/{conversationId}/messages
+    - POST   https://www.mavenagi-apis.com/v1/conversations/{conversationId}/ask
+    - POST   https://www.mavenagi-apis.com/v1/conversations/{conversationId}/ask_stream
+    - POST   https://www.mavenagi-apis.com/v1/conversations/{conversationId}/metadata
+    - PUT    https://www.mavenagi-apis.com/v1/conversations/{conversationId}/metadata
+    - POST   https://www.mavenagi-apis.com/v1/conversations/search
+    - PUT    https://www.mavenagi-apis.com/v1/knowledge
+    - POST   https://www.mavenagi-apis.com/v1/knowledge/search
+    - GET    https://www.mavenagi-apis.com/v1/knowledge/{knowledgeBaseReferenceId}
+    - POST   https://www.mavenagi-apis.com/v1/knowledge/{knowledgeBaseReferenceId}/document
+    - POST   https://www.mavenagi-apis.com/v1/knowledge/documents/search
+    - PUT    https://www.mavenagi-apis.com/v1/actions
+    - POST   https://www.mavenagi-apis.com/v1/actions/search
+    - GET    https://www.mavenagi-apis.com/v1/actions/{actionReferenceId}
+    - PUT    https://www.mavenagi-apis.com/v1/users
+    - GET    https://www.mavenagi-apis.com/v1/users/{userId}
+    - POST   https://www.mavenagi-apis.com/v1/agentusers/search
+    - POST   https://www.mavenagi-apis.com/v1/agents
+    - GET    https://www.mavenagi-apis.com/v1/organizations/{organizationReferenceId}/agents
+    - POST   https://www.mavenagi-apis.com/v1/events
+    - POST   https://www.mavenagi-apis.com/v1/events/search
+    - PUT    https://www.mavenagi-apis.com/v1/triggers
+    - GET    https://www.mavenagi-apis.com/v1/triggers/{triggerReferenceId}
+    - GET    https://www.mavenagi-apis.com/v1/app-settings
+    - POST   https://www.mavenagi-apis.com/v1/tables/conversations
+sources:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+    note: Developer portal; describes the Maven Platform API and App ID / App Secret auth.
+  - url: https://docs.mavenagi.com/maven-platform
+    type: Documentation
+    note: Build Maven AGI Apps using the Platform API.
+  - url: https://github.com/mavenagi/mavenagi-python
+    type: SDK
+    note: Fern-generated Python SDK; reference.md and raw_client sources confirm paths, methods, base URL, and auth.
+  - url: https://github.com/mavenagi/mavenagi-node
+    type: SDK
+    note: Node/TypeScript SDK; same resource model (conversation, knowledge, actions, users, agents, events, triggers).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, so no AsyncAPI WebSocket document
+    was created. The apis.yml catalogs the REST Platform API broken out by
+    resource group, with the OpenAPI at openapi/maven-agi-openapi.yml
+    modeling the confirmed endpoints, HTTP Basic App ID / App Secret auth,
+    and the ask_stream SSE surface.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

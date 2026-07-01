@@ -1,0 +1,241 @@
+aid: maven-agi
+url: https://raw.githubusercontent.com/api-evangelist/maven-agi/refs/heads/main/apis.yml
+name: Maven AGI
+kind: company
+description: Maven AGI is an enterprise AI agent platform for customer experience.
+  Its AI agents answer questions, take actions, and improve with every interaction
+  across chat, email, voice, and SMS. The Maven Platform API lets developers build
+  apps that manage conversations, knowledge, actions, users, events, and triggers,
+  authenticated with an App ID and App Secret scoped to an organization and agent.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- AI
+- Agents
+- Customer Support
+- Customer Experience
+- Conversational AI
+- Knowledge
+created: '2026-07-01'
+modified: '2026-07-01'
+specificationVersion: '0.19'
+apis:
+- aid: maven-agi:maven-agi-conversation-api
+  name: Maven AGI Conversation API
+  tags:
+  - Conversations
+  - Ask
+  - Messages
+  - Chat
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Initialize conversations, append messages, ask questions of the agent
+    (streaming or non-streaming), categorize, submit action forms, manage conversation
+    metadata, deliver messages, search, and export conversations.
+- aid: maven-agi:maven-agi-knowledge-api
+  name: Maven AGI Knowledge API
+  tags:
+  - Knowledge
+  - Documents
+  - Knowledge Bases
+  - RAG
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Create and version knowledge bases, add and refresh knowledge documents,
+    and search knowledge bases and documents that ground the agent's answers.
+- aid: maven-agi:maven-agi-actions-api
+  name: Maven AGI Actions API
+  tags:
+  - Actions
+  - Tools
+  - Function Calling
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Register, search, retrieve, patch, and delete Actions - the parameterized
+    operations against external business systems that agents can call to get work
+    done during a conversation.
+- aid: maven-agi:maven-agi-users-api
+  name: Maven AGI Users API
+  tags:
+  - Users
+  - Agent Users
+  - Identity
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Create or update users, retrieve and delete users, and read and search
+    the resolved agent-user identities associated with an agent.
+- aid: maven-agi:maven-agi-agents-api
+  name: Maven AGI Agents API
+  tags:
+  - Agents
+  - Organizations
+  - Configuration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Create, list, retrieve, patch, and delete agents within an organization,
+    the top-level configuration that defines an AI agent's behavior and scope.
+- aid: maven-agi:maven-agi-events-api
+  name: Maven AGI Events API
+  tags:
+  - Events
+  - Analytics
+  - Timeline
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Create, retrieve, search, and export events - the timeline of activity
+    and signals emitted by agents and users that feed analytics and triggers.
+- aid: maven-agi:maven-agi-triggers-api
+  name: Maven AGI Triggers API
+  tags:
+  - Triggers
+  - Automation
+  - Webhooks
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Create or update, retrieve, patch, search, and delete event triggers
+    that automate downstream behavior in response to conversation and event activity.
+- aid: maven-agi:maven-agi-app-settings-api
+  name: Maven AGI App Settings API
+  tags:
+  - Apps
+  - Settings
+  - Configuration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Read and patch the per-app settings that a Maven app uses to store its
+    installation configuration and search across app-scoped settings.
+- aid: maven-agi:maven-agi-analytics-api
+  name: Maven AGI Analytics API
+  tags:
+  - Analytics
+  - Reporting
+  - Charts
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.mavenagi.com/maven-platform
+  baseURL: https://www.mavenagi-apis.com/v1
+  properties:
+  - url: https://docs.mavenagi.com
+    type: Documentation
+  - url: https://github.com/mavenagi/mavenagi-python/blob/main/reference.md
+    type: APIReference
+  - url: openapi/maven-agi-openapi.yml
+    type: OpenAPI
+  - url: collections/maven-agi.postman_collection.json
+    type: PostmanCollection
+  - url: collections/maven-agi.opencollection.json
+    type: OpenCollection
+  description: Query conversation, event, feedback, and agent-user tables and charts
+    to build reporting on agent performance, deflection, and customer outcomes.
+common:
+- type: GitHubOrganization
+  url: https://github.com/mavenagi
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mavenagi
+- type: Website
+  url: https://www.mavenagi.com
+- type: Documentation
+  url: https://docs.mavenagi.com
+- type: Plans
+  url: plans/maven-agi-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/maven-agi-rate-limits.yml
+- type: FinOps
+  url: finops/maven-agi-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,305 @@
+{
+  "info": {
+    "_postman_id": "a1c3f0d2-9b41-4e6a-9c2f-8f0b1d7e4a10",
+    "name": "Maven AGI Platform API",
+    "description": "Maven AGI Platform API. Authenticate with HTTP Basic using your App ID (username) and App Secret (password), and send X-Organization-Id and X-Agent-Id headers on every request. Base URL: https://www.mavenagi-apis.com/v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{appId}}", "type": "string" },
+      { "key": "password", "value": "{{appSecret}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://www.mavenagi-apis.com/v1" },
+    { "key": "appId", "value": "" },
+    { "key": "appSecret", "value": "" },
+    { "key": "organizationId", "value": "" },
+    { "key": "agentId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Conversations",
+      "item": [
+        {
+          "name": "Initialize conversation",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations", "host": ["{{baseUrl}}"], "path": ["conversations"] },
+            "body": { "mode": "raw", "raw": "{\n  \"conversationId\": { \"referenceId\": \"\" },\n  \"messages\": []\n}" }
+          }
+        },
+        {
+          "name": "Get conversation",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations/:conversationId", "host": ["{{baseUrl}}"], "path": ["conversations", ":conversationId"] }
+          }
+        },
+        {
+          "name": "Append new messages",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations/:conversationId/messages", "host": ["{{baseUrl}}"], "path": ["conversations", ":conversationId", "messages"] },
+            "body": { "mode": "raw", "raw": "{\n  \"messages\": []\n}" }
+          }
+        },
+        {
+          "name": "Ask",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations/:conversationId/ask", "host": ["{{baseUrl}}"], "path": ["conversations", ":conversationId", "ask"] },
+            "body": { "mode": "raw", "raw": "{\n  \"conversationMessageId\": { \"referenceId\": \"\" },\n  \"userId\": { \"referenceId\": \"\" },\n  \"text\": \"How do I reset my password?\"\n}" }
+          }
+        },
+        {
+          "name": "Ask (stream)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "text/event-stream" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations/:conversationId/ask_stream", "host": ["{{baseUrl}}"], "path": ["conversations", ":conversationId", "ask_stream"] },
+            "body": { "mode": "raw", "raw": "{\n  \"conversationMessageId\": { \"referenceId\": \"\" },\n  \"userId\": { \"referenceId\": \"\" },\n  \"text\": \"How do I reset my password?\"\n}" }
+          }
+        },
+        {
+          "name": "Update conversation metadata",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations/:conversationId/metadata", "host": ["{{baseUrl}}"], "path": ["conversations", ":conversationId", "metadata"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        },
+        {
+          "name": "Search conversations",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/conversations/search", "host": ["{{baseUrl}}"], "path": ["conversations", "search"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Knowledge",
+      "item": [
+        {
+          "name": "Create or update knowledge base",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/knowledge", "host": ["{{baseUrl}}"], "path": ["knowledge"] },
+            "body": { "mode": "raw", "raw": "{\n  \"knowledgeBaseId\": { \"referenceId\": \"\" },\n  \"name\": \"Help Center\"\n}" }
+          }
+        },
+        {
+          "name": "Search knowledge bases",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/knowledge/search", "host": ["{{baseUrl}}"], "path": ["knowledge", "search"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        },
+        {
+          "name": "Create knowledge document",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/knowledge/:knowledgeBaseReferenceId/document", "host": ["{{baseUrl}}"], "path": ["knowledge", ":knowledgeBaseReferenceId", "document"] },
+            "body": { "mode": "raw", "raw": "{\n  \"knowledgeDocumentId\": { \"referenceId\": \"\" },\n  \"contentType\": \"MARKDOWN\",\n  \"content\": \"# Title\",\n  \"title\": \"Title\"\n}" }
+          }
+        },
+        {
+          "name": "Search knowledge documents",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/knowledge/documents/search", "host": ["{{baseUrl}}"], "path": ["knowledge", "documents", "search"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Actions",
+      "item": [
+        {
+          "name": "Create or update action",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/actions", "host": ["{{baseUrl}}"], "path": ["actions"] },
+            "body": { "mode": "raw", "raw": "{\n  \"actionId\": { \"referenceId\": \"\" },\n  \"name\": \"Look up order\",\n  \"description\": \"Fetch order status by id\"\n}" }
+          }
+        },
+        {
+          "name": "Search actions",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/actions/search", "host": ["{{baseUrl}}"], "path": ["actions", "search"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create or update user",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/users", "host": ["{{baseUrl}}"], "path": ["users"] },
+            "body": { "mode": "raw", "raw": "{\n  \"userId\": { \"referenceId\": \"\" }\n}" }
+          }
+        },
+        {
+          "name": "Search agent users",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/agentusers/search", "host": ["{{baseUrl}}"], "path": ["agentusers", "search"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "Create event",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/events", "host": ["{{baseUrl}}"], "path": ["events"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        },
+        {
+          "name": "Search events",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/events/search", "host": ["{{baseUrl}}"], "path": ["events", "search"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Triggers",
+      "item": [
+        {
+          "name": "Create or update trigger",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/triggers", "host": ["{{baseUrl}}"], "path": ["triggers"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Get conversation table",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+              { "key": "X-Agent-Id", "value": "{{agentId}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/tables/conversations", "host": ["{{baseUrl}}"], "path": ["tables", "conversations"] },
+            "body": { "mode": "raw", "raw": "{}" }
+          }
+        }
+      ]
+    }
+  ]
+}

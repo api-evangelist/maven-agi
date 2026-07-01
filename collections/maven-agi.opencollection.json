@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{appId}}",
+      "password": "{{appSecret}}"
+    },
+    "headers": [
+      { "key": "X-Organization-Id", "value": "{{organizationId}}" },
+      { "key": "X-Agent-Id", "value": "{{agentId}}" }
+    ]
+  },
+  "items": [
+    {
+      "info": { "name": "Conversations", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Initialize conversation", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations",
+            "body": { "type": "json", "data": "{\n  \"conversationId\": { \"referenceId\": \"\" },\n  \"messages\": []\n}" }
+          },
+          "docs": "Create and initialize a new conversation."
+        },
+        {
+          "info": { "name": "Get conversation", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/{conversationId}"
+          },
+          "docs": "Retrieve a conversation by id."
+        },
+        {
+          "info": { "name": "Append new messages", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/{conversationId}/messages",
+            "body": { "type": "json", "data": "{\n  \"messages\": []\n}" }
+          },
+          "docs": "Append new messages to an existing conversation."
+        },
+        {
+          "info": { "name": "Ask", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/{conversationId}/ask",
+            "body": { "type": "json", "data": "{\n  \"conversationMessageId\": { \"referenceId\": \"\" },\n  \"userId\": { \"referenceId\": \"\" },\n  \"text\": \"How do I reset my password?\"\n}" }
+          },
+          "docs": "Ask the agent a question and receive its answer."
+        },
+        {
+          "info": { "name": "Ask (stream)", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/{conversationId}/ask_stream",
+            "body": { "type": "json", "data": "{\n  \"conversationMessageId\": { \"referenceId\": \"\" },\n  \"userId\": { \"referenceId\": \"\" },\n  \"text\": \"How do I reset my password?\"\n}" }
+          },
+          "docs": "Ask the agent a question and stream the answer as Server-Sent Events."
+        },
+        {
+          "info": { "name": "Update conversation metadata", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/{conversationId}/metadata",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Replace conversation metadata."
+        },
+        {
+          "info": { "name": "Search conversations", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/search",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Search conversations."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Knowledge", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create or update knowledge base", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge",
+            "body": { "type": "json", "data": "{\n  \"knowledgeBaseId\": { \"referenceId\": \"\" },\n  \"name\": \"Help Center\"\n}" }
+          },
+          "docs": "Create or update a knowledge base."
+        },
+        {
+          "info": { "name": "Search knowledge bases", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/search",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Search knowledge bases."
+        },
+        {
+          "info": { "name": "Create knowledge document", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/{knowledgeBaseReferenceId}/document",
+            "body": { "type": "json", "data": "{\n  \"knowledgeDocumentId\": { \"referenceId\": \"\" },\n  \"contentType\": \"MARKDOWN\",\n  \"content\": \"# Title\",\n  \"title\": \"Title\"\n}" }
+          },
+          "docs": "Create a knowledge document in a knowledge base."
+        },
+        {
+          "info": { "name": "Search knowledge documents", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/documents/search",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Search knowledge documents."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Actions", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create or update action", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/actions",
+            "body": { "type": "json", "data": "{\n  \"actionId\": { \"referenceId\": \"\" },\n  \"name\": \"Look up order\",\n  \"description\": \"Fetch order status by id\"\n}" }
+          },
+          "docs": "Create or update an action."
+        },
+        {
+          "info": { "name": "Search actions", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/actions/search",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Search actions."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Users", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create or update user", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/users",
+            "body": { "type": "json", "data": "{\n  \"userId\": { \"referenceId\": \"\" }\n}" }
+          },
+          "docs": "Create or update a user."
+        },
+        {
+          "info": { "name": "Search agent users", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/agentusers/search",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Search agent users."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Events", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create event", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/events",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Create an event."
+        },
+        {
+          "info": { "name": "Search events", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/events/search",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Search events."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Triggers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Create or update trigger", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/triggers",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Create or update a trigger."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Analytics", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get conversation table", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/tables/conversations",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Query the conversation analytics table."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Maven AGI
+providerId: maven-agi
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- AI
+- Agents
+- Customer Support
+- Customer Experience
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Maven AGI spend. Maven AGI is an enterprise platform whose
+  commercials are quoted by sales, commonly as outcome-based pricing tied to
+  successful resolutions or as an enterprise agreement. Cost drivers include
+  resolved conversations, conversation and message volume across channels,
+  and the scope of integrations and support. Public per-unit rates are not
+  published, so allocation and unit-economics work depends on the negotiated
+  agreement plus usage read from the Analytics API.
+notes: >-
+  No published price list. Meters below describe cost-relevant usage
+  dimensions for internal FinOps tracking, not billed public rates.
+sources:
+- https://www.mavenagi.com
+- https://docs.mavenagi.com
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Maven AGI
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Committed / Outcome-Based
+  billingFrequency: Contract
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Commitment
+focusColumns:
+  ServiceName: Maven AGI Platform
+  ServiceCategory: AI and Machine Learning
+  ProviderName: Maven AGI
+  PublisherName: Maven AGI
+  InvoiceIssuerName: Maven AGI
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Committed
+meters:
+- name: resolutions
+  description: Successful conversation resolutions, the primary outcome-based cost driver.
+  unit: resolutions
+  aggregation: sum
+  dimensions:
+  - organization
+  - agent
+  - channel
+- name: conversations
+  description: Conversations handled across chat, email, voice, and SMS channels.
+  unit: conversations
+  aggregation: sum
+  dimensions:
+  - organization
+  - agent
+  - channel
+- name: messages
+  description: Inbound and outbound messages exchanged within conversations.
+  unit: messages
+  aggregation: sum
+  dimensions:
+  - organization
+  - agent
+- name: action_invocations
+  description: Actions invoked by agents against external business systems.
+  unit: invocations
+  aggregation: sum
+  dimensions:
+  - organization
+  - agent
+  - action
+principles:
+- name: Visibility
+  description: Use the Analytics API (conversation, event, and feedback tables) to see volume and resolution rates by agent and channel.
+- name: Allocation
+  description: Scope apps by App ID and requests by X-Organization-Id / X-Agent-Id to map usage to teams and cost centers.
+- name: Optimization
+  description: Improve knowledge and actions to raise self-service resolution and reduce escalations that drive cost.
+- name: Accountability
+  description: Assign owners per agent/channel and review resolution and deflection against the negotiated commitment.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

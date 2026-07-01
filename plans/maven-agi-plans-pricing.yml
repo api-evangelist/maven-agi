@@ -1,0 +1,78 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Maven AGI
+providerId: maven-agi
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- AI
+- Agents
+- Customer Support
+- Customer Experience
+- Plans
+description: >-
+  Maven AGI is sold as an enterprise platform and does not publish list
+  pricing. Engagements are quoted by sales and commonly structured as
+  outcome-based pricing tied to successful resolutions, alongside enterprise
+  agreements that account for conversation volume, channels, integrations,
+  and deployment requirements. The Platform API is included as part of a
+  Maven AGI agreement rather than sold as a standalone metered API.
+notes: >-
+  Amounts are not published. Any per-resolution or per-conversation figures
+  quoted publicly by third parties are illustrative industry ranges, not
+  Maven AGI list prices. Verify all commercial terms with Maven AGI sales.
+sources:
+- https://www.mavenagi.com
+- https://www.mavenagi.com/developers
+- https://docs.mavenagi.com
+plans:
+- id: maven-agi-outcome-based
+  name: Outcome-Based
+  type: usage
+  description: >-
+    Pricing aligned to successful resolutions, so cost tracks the value the
+    AI agent delivers. Quoted by sales based on expected volume and mix.
+  entries:
+  - label: Successful Resolution
+    name: resolution
+    type: usage
+    metric: resolutions
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: AI Agents (chat, email, voice, SMS)
+  - name: Conversation API
+  - name: Knowledge API
+  - name: Actions API
+- id: maven-agi-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Negotiated enterprise agreement covering conversation volume, channels,
+    helpdesk and system integrations, Platform API and app development,
+    analytics, security review, and support. Quoted by sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Platform API and App Development
+  - name: Helpdesk and System Integrations
+  - name: Analytics and Insights
+  - name: Enterprise Security and Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

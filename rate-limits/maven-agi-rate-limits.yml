@@ -1,0 +1,57 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Maven AGI
+providerId: maven-agi
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- AI
+- Agents
+- Customer Support
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Maven AGI Platform API applies per-app and per-agent throttling, but
+  specific numeric limits are not published in the public documentation and
+  are governed by the customer's enterprise agreement. The official SDKs
+  (Python, Node, Java, Go, .NET) ship with automatic retries and exponential
+  backoff, retrying requests deemed retryable up to a default of two attempts,
+  which signals that clients are expected to handle throttling gracefully.
+notes: >-
+  No published RPM/RPS/quota values exist. Confirm concrete limits, burst
+  behavior, and any per-endpoint constraints with Maven AGI during onboarding.
+sources:
+- https://docs.mavenagi.com
+- https://github.com/mavenagi/mavenagi-python
+- https://github.com/mavenagi/mavenagi-node
+responseCodes:
+  throttled: 429
+limits:
+- name: Per-App Requests
+  scope: app
+  metric: requests
+  limit: see provider documentation
+  notes: Throttling is scoped to the App ID / App Secret credential; values not published.
+- name: Per-Agent Requests
+  scope: agent
+  metric: requests
+  limit: see provider documentation
+  notes: Requests are scoped to X-Agent-Id; limits governed by the customer agreement.
+- name: Streaming (ask_stream)
+  scope: agent
+  metric: connections
+  limit: see provider documentation
+  notes: Server-Sent Events streaming for ask_stream; concurrency limits not published.
+policies:
+- name: Automatic Retries
+  description: Official SDKs retry retryable requests with exponential backoff (default 2 retries).
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+- name: Enterprise-Governed Limits
+  description: Concrete quotas are set per enterprise agreement rather than published as fixed public tiers.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
