@@ -222,6 +222,12 @@ apis:
   description: Query conversation, event, feedback, and agent-user tables and charts
     to build reporting on agent performance, deflection, and customer outcomes.
 common:
+- type: TrustCenter
+  url: security/maven-agi-trust-center.yml
+- type: DomainSecurity
+  url: security/maven-agi-domain-security.yml
+- type: Authentication
+  url: authentication/maven-agi-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/mavenagi
 - type: LinkedIn
@@ -236,6 +242,8 @@ common:
   url: rate-limits/maven-agi-rate-limits.yml
 - type: FinOps
   url: finops/maven-agi-finops.yml
+- type: Blog
+  url: https://mavenagi.com/resources
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

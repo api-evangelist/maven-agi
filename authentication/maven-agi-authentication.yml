@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/maven-agi-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: appAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic authentication using the App ID as the username and the App Secret
+    as the password. Requests must also send X-Organization-Id and X-Agent-Id headers to scope
+    the call to an organization and agent.
+  sources:
+  - openapi/maven-agi-openapi.yml
