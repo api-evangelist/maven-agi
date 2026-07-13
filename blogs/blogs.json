@@ -1,0 +1,14 @@
+{
+  "repo": "maven-agi",
+  "feeds": [
+    {
+      "source": "https://mavenagi.com/resources",
+      "feed_url": "https://mavenagi.com/resources",
+      "title": "Maven AGI Resources",
+      "saved": 0,
+      "error": "parse_failed"
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 15
+}
