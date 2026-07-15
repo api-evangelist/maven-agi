@@ -222,6 +222,8 @@ apis:
   description: Query conversation, event, feedback, and agent-user tables and charts
     to build reporting on agent performance, deflection, and customer outcomes.
 common:
+- type: AgenticAccess
+  url: agentic-access/maven-agi-agentic-access.yml
 - type: TrustCenter
   url: security/maven-agi-trust-center.yml
 - type: DomainSecurity
