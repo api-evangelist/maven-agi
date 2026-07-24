@@ -1,0 +1,329 @@
+openapi: 3.0.3
+info:
+  title: Maven AGI Platform Actions Knowledge API
+  version: '1.0'
+  description: The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.
+  contact:
+    name: Maven AGI
+    url: https://docs.mavenagi.com
+  license:
+    name: Proprietary
+servers:
+- url: https://www.mavenagi-apis.com/v1
+  description: Production
+- url: https://www.staging.mavenagi-apis.com/v1
+  description: Staging
+security:
+- appAuth: []
+tags:
+- name: Knowledge
+paths:
+  /knowledge:
+    put:
+      tags:
+      - Knowledge
+      operationId: createOrUpdateKnowledgeBase
+      summary: Create or update a knowledge base
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeBaseRequest'
+      responses:
+        '200':
+          description: The created or updated knowledge base.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBase'
+  /knowledge/search:
+    post:
+      tags:
+      - Knowledge
+      operationId: searchKnowledgeBases
+      summary: Search knowledge bases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching knowledge bases.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/{knowledgeBaseReferenceId}:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    get:
+      tags:
+      - Knowledge
+      operationId: getKnowledgeBase
+      summary: Get a knowledge base
+      responses:
+        '200':
+          description: The requested knowledge base.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBase'
+    patch:
+      tags:
+      - Knowledge
+      operationId: patchKnowledgeBase
+      summary: Patch a knowledge base
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated knowledge base.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBase'
+  /knowledge/{knowledgeBaseReferenceId}/refresh:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags:
+      - Knowledge
+      operationId: refreshKnowledgeBase
+      summary: Refresh a knowledge base
+      responses:
+        '200':
+          description: Refresh accepted.
+  /knowledge/{knowledgeBaseReferenceId}/version:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags:
+      - Knowledge
+      operationId: createKnowledgeBaseVersion
+      summary: Create a knowledge base version
+      responses:
+        '200':
+          description: The created version.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/{knowledgeBaseReferenceId}/version/finalize:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags:
+      - Knowledge
+      operationId: finalizeKnowledgeBaseVersion
+      summary: Finalize a knowledge base version
+      responses:
+        '200':
+          description: The finalized version.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/{knowledgeBaseReferenceId}/cancel:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags:
+      - Knowledge
+      operationId: cancelKnowledgeBaseVersion
+      summary: Cancel a knowledge base version
+      responses:
+        '200':
+          description: Cancellation accepted.
+  /knowledge/{knowledgeBaseReferenceId}/versions:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    get:
+      tags:
+      - Knowledge
+      operationId: listKnowledgeBaseVersions
+      summary: List knowledge base versions
+      responses:
+        '200':
+          description: The list of versions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /knowledge/{knowledgeBaseReferenceId}/document:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    post:
+      tags:
+      - Knowledge
+      operationId: createKnowledgeDocument
+      summary: Create a knowledge document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeDocumentRequest'
+      responses:
+        '200':
+          description: The created knowledge document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeDocument'
+  /knowledge/{knowledgeBaseReferenceId}/{knowledgeDocumentReferenceId}/document:
+    parameters:
+    - $ref: '#/components/parameters/KnowledgeBaseReferenceId'
+    - $ref: '#/components/parameters/KnowledgeDocumentReferenceId'
+    patch:
+      tags:
+      - Knowledge
+      operationId: patchKnowledgeDocument
+      summary: Patch a knowledge document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated knowledge document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeDocument'
+    delete:
+      tags:
+      - Knowledge
+      operationId: deleteKnowledgeDocument
+      summary: Delete a knowledge document
+      responses:
+        '204':
+          description: Knowledge document deleted.
+  /knowledge/documents/search:
+    post:
+      tags:
+      - Knowledge
+      operationId: searchKnowledgeDocuments
+      summary: Search knowledge documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching knowledge documents.
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledge/versions/{knowledgeBaseVersionReferenceId}/documents/{knowledgeDocumentReferenceId}:
+    parameters:
+    - name: knowledgeBaseVersionReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    - $ref: '#/components/parameters/KnowledgeDocumentReferenceId'
+    get:
+      tags:
+      - Knowledge
+      operationId: getKnowledgeDocument
+      summary: Get a knowledge document
+      responses:
+        '200':
+          description: The requested knowledge document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeDocument'
+components:
+  schemas:
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
+    KnowledgeBaseRequest:
+      type: object
+      required:
+      - knowledgeBaseId
+      - name
+      properties:
+        knowledgeBaseId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        type:
+          type: string
+    KnowledgeDocumentRequest:
+      type: object
+      required:
+      - knowledgeDocumentId
+      - content
+      properties:
+        knowledgeDocumentId:
+          $ref: '#/components/schemas/EntityId'
+        contentType:
+          type: string
+          enum:
+          - MARKDOWN
+          - HTML
+        content:
+          type: string
+        title:
+          type: string
+    KnowledgeDocument:
+      type: object
+      properties:
+        knowledgeDocumentId:
+          $ref: '#/components/schemas/EntityId'
+        title:
+          type: string
+        content:
+          type: string
+    KnowledgeBase:
+      type: object
+      properties:
+        knowledgeBaseId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        type:
+          type: string
+        version:
+          type: object
+  parameters:
+    KnowledgeDocumentReferenceId:
+      name: knowledgeDocumentReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    KnowledgeBaseReferenceId:
+      name: knowledgeBaseReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    appAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using the App ID as the username and the App Secret as the password. Requests must also send X-Organization-Id and X-Agent-Id headers to scope the call to an organization and agent.

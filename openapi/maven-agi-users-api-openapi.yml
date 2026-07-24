@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: Maven AGI Platform Actions Users API
+  version: '1.0'
+  description: The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.
+  contact:
+    name: Maven AGI
+    url: https://docs.mavenagi.com
+  license:
+    name: Proprietary
+servers:
+- url: https://www.mavenagi-apis.com/v1
+  description: Production
+- url: https://www.staging.mavenagi-apis.com/v1
+  description: Staging
+security:
+- appAuth: []
+tags:
+- name: Users
+paths:
+  /users:
+    put:
+      tags:
+      - Users
+      operationId: createOrUpdateUser
+      summary: Create or update a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: The created or updated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /users/{userId}:
+    parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Users
+      operationId: getUser
+      summary: Get a user
+      responses:
+        '200':
+          description: The requested user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - Users
+      operationId: deleteUser
+      summary: Delete a user
+      responses:
+        '204':
+          description: User deleted.
+  /agentusers/search:
+    post:
+      tags:
+      - Users
+      operationId: searchAgentUsers
+      summary: Search agent users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Matching agent users.
+          content:
+            application/json:
+              schema:
+                type: object
+  /agentusers/{agentUserId}:
+    parameters:
+    - name: agentUserId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Users
+      operationId: getAgentUser
+      summary: Get an agent user
+      responses:
+        '200':
+          description: The requested agent user.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        defaultUserData:
+          type: object
+    UserRequest:
+      type: object
+      required:
+      - userId
+      properties:
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        identifiers:
+          type: array
+          items:
+            type: object
+        data:
+          type: object
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
+  securitySchemes:
+    appAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using the App ID as the username and the App Secret as the password. Requests must also send X-Organization-Id and X-Agent-Id headers to scope the call to an organization and agent.

@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: Maven AGI Platform Actions App Settings API
+  version: '1.0'
+  description: The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.
+  contact:
+    name: Maven AGI
+    url: https://docs.mavenagi.com
+  license:
+    name: Proprietary
+servers:
+- url: https://www.mavenagi-apis.com/v1
+  description: Production
+- url: https://www.staging.mavenagi-apis.com/v1
+  description: Staging
+security:
+- appAuth: []
+tags:
+- name: App Settings
+paths:
+  /app-settings:
+    get:
+      tags:
+      - App Settings
+      operationId: getAppSettings
+      summary: Get app settings
+      responses:
+        '200':
+          description: The app settings.
+          content:
+            application/json:
+              schema:
+                type: object
+    patch:
+      tags:
+      - App Settings
+      operationId: patchAppSettings
+      summary: Patch app settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated app settings.
+          content:
+            application/json:
+              schema:
+                type: object
+  /app-settings/search:
+    get:
+      tags:
+      - App Settings
+      operationId: searchAppSettings
+      summary: Search app settings
+      responses:
+        '200':
+          description: Matching app settings.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    appAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using the App ID as the username and the App Secret as the password. Requests must also send X-Organization-Id and X-Agent-Id headers to scope the call to an organization and agent.

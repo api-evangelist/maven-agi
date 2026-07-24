@@ -1,0 +1,112 @@
+openapi: 3.0.3
+info:
+  title: Maven AGI Platform Actions Triggers API
+  version: '1.0'
+  description: The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.
+  contact:
+    name: Maven AGI
+    url: https://docs.mavenagi.com
+  license:
+    name: Proprietary
+servers:
+- url: https://www.mavenagi-apis.com/v1
+  description: Production
+- url: https://www.staging.mavenagi-apis.com/v1
+  description: Staging
+security:
+- appAuth: []
+tags:
+- name: Triggers
+paths:
+  /triggers:
+    put:
+      tags:
+      - Triggers
+      operationId: createOrUpdateTrigger
+      summary: Create or update a trigger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The created or updated trigger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+  /triggers/{triggerReferenceId}:
+    parameters:
+    - name: triggerReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Triggers
+      operationId: getTrigger
+      summary: Get a trigger
+      responses:
+        '200':
+          description: The requested trigger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+    patch:
+      tags:
+      - Triggers
+      operationId: patchTrigger
+      summary: Partially update a trigger
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated trigger.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+    delete:
+      tags:
+      - Triggers
+      operationId: deleteTrigger
+      summary: Delete a trigger
+      responses:
+        '204':
+          description: Trigger deleted.
+components:
+  schemas:
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
+    Trigger:
+      type: object
+      properties:
+        triggerId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        description:
+          type: string
+        eventType:
+          type: string
+  securitySchemes:
+    appAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication using the App ID as the username and the App Secret as the password. Requests must also send X-Organization-Id and X-Agent-Id headers to scope the call to an organization and agent.
