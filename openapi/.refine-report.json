@@ -1,0 +1,30 @@
+{
+  "provider": "maven-agi",
+  "sources": [
+    "maven-agi-actions-api-openapi.yml",
+    "maven-agi-agents-api-openapi.yml",
+    "maven-agi-analytics-api-openapi.yml",
+    "maven-agi-app-settings-api-openapi.yml",
+    "maven-agi-conversations-api-openapi.yml",
+    "maven-agi-events-api-openapi.yml",
+    "maven-agi-knowledge-api-openapi.yml",
+    "maven-agi-triggers-api-openapi.yml",
+    "maven-agi-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "maven-agi-actions-api-openapi.yml",
+    "maven-agi-agents-api-openapi.yml",
+    "maven-agi-analytics-api-openapi.yml",
+    "maven-agi-app-settings-api-openapi.yml",
+    "maven-agi-conversations-api-openapi.yml",
+    "maven-agi-events-api-openapi.yml",
+    "maven-agi-knowledge-api-openapi.yml",
+    "maven-agi-triggers-api-openapi.yml",
+    "maven-agi-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
