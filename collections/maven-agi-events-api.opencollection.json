@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions Events API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an event"
+        },
+        {
+          "info": {
+            "name": "Get an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/events/:eventId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an event"
+        },
+        {
+          "info": {
+            "name": "Search events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/events/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search events"
+        },
+        {
+          "info": {
+            "name": "Export events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/events/export"
+          },
+          "docs": "Export events"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

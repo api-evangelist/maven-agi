@@ -1,0 +1,304 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions Conversations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initialize a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create and initialize a new conversation for the agent."
+        },
+        {
+          "info": {
+            "name": "Get a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a conversation"
+        },
+        {
+          "info": {
+            "name": "Patch a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch a conversation"
+        },
+        {
+          "info": {
+            "name": "Delete a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a conversation"
+        },
+        {
+          "info": {
+            "name": "Append new messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/messages",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Append one or more new messages to an existing conversation."
+        },
+        {
+          "info": {
+            "name": "Ask the agent a question",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/ask",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a user message and receive the agent's answer, including any actions taken and knowledge referenced."
+        },
+        {
+          "info": {
+            "name": "Ask the agent a question (streaming)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/ask_stream",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Same as ask, but streams the response back as Server-Sent Events for low-latency, incremental delivery."
+        },
+        {
+          "info": {
+            "name": "Categorize a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/categorize",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Categorize a conversation"
+        },
+        {
+          "info": {
+            "name": "Submit an action form",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/submit-form",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit the collected parameters for an action form the agent presented."
+        },
+        {
+          "info": {
+            "name": "Add conversation metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/metadata",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add conversation metadata"
+        },
+        {
+          "info": {
+            "name": "Update conversation metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/:conversationId/metadata",
+            "params": [
+              {
+                "name": "conversationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update conversation metadata"
+        },
+        {
+          "info": {
+            "name": "Create conversation feedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create conversation feedback"
+        },
+        {
+          "info": {
+            "name": "Search conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search conversations"
+        },
+        {
+          "info": {
+            "name": "Export conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/export"
+          },
+          "docs": "Export conversations"
+        },
+        {
+          "info": {
+            "name": "Deliver a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/conversations/deliver-message",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliver an outbound message to a conversation channel."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

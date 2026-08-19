@@ -1,0 +1,295 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions Knowledge API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Knowledge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update a knowledge base",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a knowledge base"
+        },
+        {
+          "info": {
+            "name": "Search knowledge bases",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search knowledge bases"
+        },
+        {
+          "info": {
+            "name": "Get a knowledge base",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a knowledge base"
+        },
+        {
+          "info": {
+            "name": "Patch a knowledge base",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch a knowledge base"
+        },
+        {
+          "info": {
+            "name": "Refresh a knowledge base",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/refresh",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Refresh a knowledge base"
+        },
+        {
+          "info": {
+            "name": "Create a knowledge base version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/version",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a knowledge base version"
+        },
+        {
+          "info": {
+            "name": "Finalize a knowledge base version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/version/finalize",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Finalize a knowledge base version"
+        },
+        {
+          "info": {
+            "name": "Cancel a knowledge base version",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/cancel",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a knowledge base version"
+        },
+        {
+          "info": {
+            "name": "List knowledge base versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/versions",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List knowledge base versions"
+        },
+        {
+          "info": {
+            "name": "Create a knowledge document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/document",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a knowledge document"
+        },
+        {
+          "info": {
+            "name": "Patch a knowledge document",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/:knowledgeDocumentReferenceId/document",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "knowledgeDocumentReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch a knowledge document"
+        },
+        {
+          "info": {
+            "name": "Delete a knowledge document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/:knowledgeBaseReferenceId/:knowledgeDocumentReferenceId/document",
+            "params": [
+              {
+                "name": "knowledgeBaseReferenceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "knowledgeDocumentReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a knowledge document"
+        },
+        {
+          "info": {
+            "name": "Search knowledge documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/documents/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search knowledge documents"
+        },
+        {
+          "info": {
+            "name": "Get a knowledge document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/knowledge/versions/:knowledgeBaseVersionReferenceId/documents/:knowledgeDocumentReferenceId",
+            "params": [
+              {
+                "name": "knowledgeBaseVersionReferenceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "knowledgeDocumentReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a knowledge document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update an action",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/actions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an action"
+        },
+        {
+          "info": {
+            "name": "Search actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/actions/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search actions"
+        },
+        {
+          "info": {
+            "name": "Get an action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/actions/:actionReferenceId",
+            "params": [
+              {
+                "name": "actionReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an action"
+        },
+        {
+          "info": {
+            "name": "Patch an action",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/actions/:actionReferenceId",
+            "params": [
+              {
+                "name": "actionReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch an action"
+        },
+        {
+          "info": {
+            "name": "Delete an action",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.mavenagi-apis.com/v1/actions/:actionReferenceId",
+            "params": [
+              {
+                "name": "actionReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an action"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

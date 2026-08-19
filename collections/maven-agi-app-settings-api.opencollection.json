@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions App Settings API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "App Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get app settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/app-settings"
+          },
+          "docs": "Get app settings"
+        },
+        {
+          "info": {
+            "name": "Patch app settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/app-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch app settings"
+        },
+        {
+          "info": {
+            "name": "Search app settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/app-settings/search"
+          },
+          "docs": "Search app settings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

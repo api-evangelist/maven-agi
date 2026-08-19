@@ -1,0 +1,1465 @@
+{
+  "item": [
+    {
+      "id": "5544cd48-98b9-4092-858b-a6240632377d",
+      "name": "Knowledge",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "511906e2-5d6b-4dc5-ba2c-68d10bed5f4d",
+          "name": "Create or update a knowledge base",
+          "request": {
+            "name": "Create or update a knowledge base",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"knowledgeBaseId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42cd388d-6c66-43ea-b25d-50476a5fcf9b",
+              "name": "The created or updated knowledge base.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"knowledgeBaseId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"knowledgeBaseId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"version\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b91ee8e-fcda-4114-9bfe-b9506a5556d7",
+          "name": "Search knowledge bases",
+          "request": {
+            "name": "Search knowledge bases",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1394774-5b5d-4410-b6a7-1c0c81d094c5",
+              "name": "Matching knowledge bases.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "457e15a2-3b5e-48d2-9d7a-c1119c5c1e2e",
+          "name": "Get a knowledge base",
+          "request": {
+            "name": "Get a knowledge base",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8976f0fe-64d2-4d5c-984a-2afb6496afb2",
+              "name": "The requested knowledge base.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"knowledgeBaseId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"version\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "151592b6-7828-44e7-89f6-f3180b5540ce",
+          "name": "Patch a knowledge base",
+          "request": {
+            "name": "Patch a knowledge base",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e8be7e5-d505-4952-b876-9c6edeb921db",
+              "name": "The updated knowledge base.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"knowledgeBaseId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"version\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "355cae03-ce4e-4da8-9773-5d6627a8fd0e",
+          "name": "Refresh a knowledge base",
+          "request": {
+            "name": "Refresh a knowledge base",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16c4d484-a3f7-48e1-9857-17d16b202dfc",
+              "name": "Refresh accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04dd9929-5d6e-46af-b471-302fc67545b3",
+          "name": "Create a knowledge base version",
+          "request": {
+            "name": "Create a knowledge base version",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6adec91-21d0-4335-a4c1-908e8b2bc12d",
+              "name": "The created version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22b243cb-c1c3-4fb7-ac38-e02541672eac",
+          "name": "Finalize a knowledge base version",
+          "request": {
+            "name": "Finalize a knowledge base version",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                "version",
+                "finalize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fa37236-010a-439b-9a33-de857f4d2705",
+              "name": "The finalized version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    "version",
+                    "finalize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "731df244-1c17-47f0-976d-8aada83fcc2f",
+          "name": "Cancel a knowledge base version",
+          "request": {
+            "name": "Cancel a knowledge base version",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d84c0ef-648c-4b39-92f6-f8f2a5663b8a",
+              "name": "Cancellation accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24ab2346-f971-414c-99f8-75f840ba1edb",
+          "name": "List knowledge base versions",
+          "request": {
+            "name": "List knowledge base versions",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6774ca1c-367c-423c-add3-960cef11f442",
+              "name": "The list of versions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "787c2c97-df1e-419b-bd3a-662cd66d9681",
+          "name": "Create a knowledge document",
+          "request": {
+            "name": "Create a knowledge document",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                "document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"knowledgeDocumentId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"content\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91468ef6-2c4d-4f0f-9cfa-f98b8904352c",
+              "name": "The created knowledge document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    "document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"knowledgeDocumentId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"content\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"knowledgeDocumentId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"title\": \"string\",\n  \"content\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc4b3d8c-145f-4828-98be-20114e3f0756",
+          "name": "Patch a knowledge document",
+          "request": {
+            "name": "Patch a knowledge document",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                ":knowledgeDocumentReferenceId",
+                "document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeDocumentReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0edff58f-d824-4b6e-817f-70b612d71e71",
+              "name": "The updated knowledge document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    ":knowledgeDocumentReferenceId",
+                    "document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeDocumentReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"knowledgeDocumentId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"title\": \"string\",\n  \"content\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "640945b2-3e56-4a30-8c3c-a52073603807",
+          "name": "Delete a knowledge document",
+          "request": {
+            "name": "Delete a knowledge document",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                ":knowledgeBaseReferenceId",
+                ":knowledgeDocumentReferenceId",
+                "document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseReferenceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeDocumentReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42998adb-2bd1-4b66-86d5-48026acded90",
+              "name": "Knowledge document deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    ":knowledgeBaseReferenceId",
+                    ":knowledgeDocumentReferenceId",
+                    "document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseReferenceId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeDocumentReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "116006e4-069e-4220-877e-ddd31b6f248a",
+          "name": "Search knowledge documents",
+          "request": {
+            "name": "Search knowledge documents",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                "documents",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bacbee3f-69e9-481f-9b38-64542be863ac",
+              "name": "Matching knowledge documents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    "documents",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "049fa9ea-5dac-4c50-9694-5a5a52f9956b",
+          "name": "Get a knowledge document",
+          "request": {
+            "name": "Get a knowledge document",
+            "description": {},
+            "url": {
+              "path": [
+                "knowledge",
+                "versions",
+                ":knowledgeBaseVersionReferenceId",
+                "documents",
+                ":knowledgeDocumentReferenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeBaseVersionReferenceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "knowledgeDocumentReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "979566f4-f1b5-4b37-9928-7bd7fba13b72",
+              "name": "The requested knowledge document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "knowledge",
+                    "versions",
+                    ":knowledgeBaseVersionReferenceId",
+                    "documents",
+                    ":knowledgeDocumentReferenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeBaseVersionReferenceId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "knowledgeDocumentReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"knowledgeDocumentId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"title\": \"string\",\n  \"content\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.mavenagi-apis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "00a68697-b970-4559-9a8c-71d9d1a05698",
+    "name": "Maven AGI Platform Actions Knowledge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.\n\nContact Support:\n Name: Maven AGI",
+      "type": "text/plain"
+    }
+  }
+}

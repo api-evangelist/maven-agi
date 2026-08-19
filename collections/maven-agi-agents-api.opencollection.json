@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions Agents API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/agents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an agent"
+        },
+        {
+          "info": {
+            "name": "List agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/organizations/:organizationReferenceId/agents",
+            "params": [
+              {
+                "name": "organizationReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List agents"
+        },
+        {
+          "info": {
+            "name": "Get an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/organizations/:organizationReferenceId/agents/:agentReferenceId",
+            "params": [
+              {
+                "name": "organizationReferenceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "agentReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an agent"
+        },
+        {
+          "info": {
+            "name": "Patch an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/organizations/:organizationReferenceId/agents/:agentReferenceId",
+            "params": [
+              {
+                "name": "organizationReferenceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "agentReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch an agent"
+        },
+        {
+          "info": {
+            "name": "Delete an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.mavenagi-apis.com/v1/organizations/:organizationReferenceId/agents/:agentReferenceId",
+            "params": [
+              {
+                "name": "organizationReferenceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "agentReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an agent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

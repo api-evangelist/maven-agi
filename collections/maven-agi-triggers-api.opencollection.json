@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions Triggers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Triggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update a trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/triggers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a trigger"
+        },
+        {
+          "info": {
+            "name": "Get a trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/triggers/:triggerReferenceId",
+            "params": [
+              {
+                "name": "triggerReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a trigger"
+        },
+        {
+          "info": {
+            "name": "Partially update a trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.mavenagi-apis.com/v1/triggers/:triggerReferenceId",
+            "params": [
+              {
+                "name": "triggerReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially update a trigger"
+        },
+        {
+          "info": {
+            "name": "Delete a trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.mavenagi-apis.com/v1/triggers/:triggerReferenceId",
+            "params": [
+              {
+                "name": "triggerReferenceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a trigger"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

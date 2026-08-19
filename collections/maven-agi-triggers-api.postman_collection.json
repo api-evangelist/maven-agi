@@ -1,0 +1,431 @@
+{
+  "item": [
+    {
+      "id": "4a2420b2-3365-4a5f-a494-ecfe3f515dcd",
+      "name": "Triggers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6e64a90-6a94-4541-882e-d2305597267f",
+          "name": "Create or update a trigger",
+          "request": {
+            "name": "Create or update a trigger",
+            "description": {},
+            "url": {
+              "path": [
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c177755e-ea70-42d8-ab79-652c7fded67d",
+              "name": "The created or updated trigger.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"triggerId\": {\n    \"referenceId\": \"string\",\n    \"type\": \"string\",\n    \"appId\": \"string\"\n  },\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"eventType\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "625b4145-3824-4372-82a5-9e1a3b4b9805",
+          "name": "Get a trigger",
+          "request": {
+            "name": "Get a trigger",
+            "description": {},
+            "url": {
+              "path": [
+                "triggers",
+                ":triggerReferenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "333bd2f5-99e4-414b-9e7b-06650979e459",
+              "name": "The requested trigger.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "triggers",
+                    ":triggerReferenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"triggerId\": {\n    \"referenceId\": \"string\",\n    \"type\": \"string\",\n    \"appId\": \"string\"\n  },\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"eventType\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3de86b8f-51c5-49d0-9f7c-1bc990255614",
+          "name": "Partially update a trigger",
+          "request": {
+            "name": "Partially update a trigger",
+            "description": {},
+            "url": {
+              "path": [
+                "triggers",
+                ":triggerReferenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "819b0f5a-539d-4895-9108-21d4caee6f57",
+              "name": "The updated trigger.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "triggers",
+                    ":triggerReferenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"triggerId\": {\n    \"referenceId\": \"string\",\n    \"type\": \"string\",\n    \"appId\": \"string\"\n  },\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"eventType\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7605b2d2-0f74-485b-852f-c3500fc11fd2",
+          "name": "Delete a trigger",
+          "request": {
+            "name": "Delete a trigger",
+            "description": {},
+            "url": {
+              "path": [
+                "triggers",
+                ":triggerReferenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerReferenceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "664224ad-67f3-4736-a279-d894f91bec26",
+              "name": "Trigger deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "triggers",
+                    ":triggerReferenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerReferenceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.mavenagi-apis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "30dcab13-57f3-43f7-9fd1-3b9d4bff1f90",
+    "name": "Maven AGI Platform Actions Triggers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.\n\nContact Support:\n Name: Maven AGI",
+      "type": "text/plain"
+    }
+  }
+}

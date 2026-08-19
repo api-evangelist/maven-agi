@@ -1,0 +1,1611 @@
+{
+  "item": [
+    {
+      "id": "507392fb-b8e3-4a9f-ab2d-78ccf36a844e",
+      "name": "Conversations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "026a8014-f067-420f-9a51-f5197c3463b8",
+          "name": "Initialize a conversation",
+          "request": {
+            "name": "Initialize a conversation",
+            "description": {
+              "content": "Create and initialize a new conversation for the agent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conversations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8997d156-1720-44d4-8cda-788cbf59a4b3",
+              "name": "The initialized conversation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metadata\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"string\",\n  \"createdAt\": \"1986-08-04T20:19:35.380Z\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33fecedc-00d3-48fb-8952-7ac97c4f669f",
+          "name": "Get a conversation",
+          "request": {
+            "name": "Get a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9a3d0fb-11d7-465c-81cc-0b9c1699afa0",
+              "name": "The requested conversation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"string\",\n  \"createdAt\": \"1969-03-03T21:02:27.073Z\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68fa2384-38f5-4e1d-86fe-fce457a77bfe",
+          "name": "Patch a conversation",
+          "request": {
+            "name": "Patch a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19c2fd19-6324-4860-904d-107eb06686b0",
+              "name": "The updated conversation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"string\",\n  \"createdAt\": \"1969-03-03T21:02:27.073Z\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cc19e8e-5bab-4263-872b-980f6daae1f6",
+          "name": "Delete a conversation",
+          "request": {
+            "name": "Delete a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ca1d73a-be74-48ce-9a95-0dd2a8af8280",
+              "name": "Conversation deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2179e451-396c-4a21-b844-5f4b1ddda5e3",
+          "name": "Append new messages",
+          "request": {
+            "name": "Append new messages",
+            "description": {
+              "content": "Append one or more new messages to an existing conversation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab5f1f1d-6614-4c65-b5a2-ad0e2263a381",
+              "name": "The updated conversation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"string\",\n  \"createdAt\": \"1969-03-03T21:02:27.073Z\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d569fec-101d-49df-bd24-de4b099dc2fa",
+          "name": "Ask the agent a question",
+          "request": {
+            "name": "Ask the agent a question",
+            "description": {
+              "content": "Send a user message and receive the agent's answer, including any actions taken and knowledge referenced.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "ask"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversationMessageId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"userId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"text\": \"<string>\",\n  \"attachments\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "634bbec6-ed85-4ed1-9ca2-637ead3f42a7",
+              "name": "The agent's response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "ask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversationMessageId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"userId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"text\": \"<string>\",\n  \"attachments\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversationMessageId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"userId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"text\": \"<string>\",\n  \"responseLength\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ee347df-d7ea-4bbc-904a-b746ae49a96e",
+          "name": "Ask the agent a question (streaming)",
+          "request": {
+            "name": "Ask the agent a question (streaming)",
+            "description": {
+              "content": "Same as ask, but streams the response back as Server-Sent Events for low-latency, incremental delivery.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "ask_stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"conversationMessageId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"userId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"text\": \"<string>\",\n  \"attachments\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc708f89-becf-437f-9953-1fbf4896fe1b",
+              "name": "A stream of response events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "ask_stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"conversationMessageId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"userId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"text\": \"<string>\",\n  \"attachments\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "608a3345-a9a2-45da-94c6-8dc4e68e23e7",
+          "name": "Categorize a conversation",
+          "request": {
+            "name": "Categorize a conversation",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "categorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19c41543-fbf4-42ea-8e27-32a2d2cfa2ea",
+              "name": "Categorization result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "categorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddb96ea5-bfb8-42a1-9e22-b2faaaf60cef",
+          "name": "Submit an action form",
+          "request": {
+            "name": "Submit an action form",
+            "description": {
+              "content": "Submit the collected parameters for an action form the agent presented.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "submit-form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7825b0a5-a393-4276-9301-536df0a79b1e",
+              "name": "The updated conversation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "submit-form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conversationId\": {\n    \"referenceId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"appId\": \"<string>\"\n  },\n  \"messages\": [\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    },\n    {\n      \"conversationMessageId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"userId\": {\n        \"referenceId\": \"<string>\",\n        \"type\": \"<string>\",\n        \"appId\": \"<string>\"\n      },\n      \"text\": \"<string>\",\n      \"responseLength\": \"<string>\"\n    }\n  ],\n  \"subject\": \"string\",\n  \"createdAt\": \"1969-03-03T21:02:27.073Z\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd612ee6-9753-48fd-883d-a4101f70b792",
+          "name": "Add conversation metadata",
+          "request": {
+            "name": "Add conversation metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"<string>\",\n  \"key_1\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ad918df-82db-4dbe-9117-7e9a4a2a96a3",
+              "name": "The updated metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b132186-1b66-434b-8345-16a07fd7e702",
+          "name": "Update conversation metadata",
+          "request": {
+            "name": "Update conversation metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                ":conversationId",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conversationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"<string>\",\n  \"key_1\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84e837cc-9efe-4142-b428-d93e27b019b8",
+              "name": "The updated metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    ":conversationId",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conversationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8813f664-4473-4b49-9559-f6ea6891c400",
+          "name": "Create conversation feedback",
+          "request": {
+            "name": "Create conversation feedback",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                "feedback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46484d35-6c2e-4303-8610-9f739a8b5c00",
+              "name": "The created feedback.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "915f8bd9-fe18-4824-90a5-3d97e238d08d",
+          "name": "Search conversations",
+          "request": {
+            "name": "Search conversations",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dee17caa-dc65-4eb6-ba98-20215039a967",
+              "name": "Matching conversations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c980c66f-9d44-4efb-9b08-eb9fdb5649cc",
+          "name": "Export conversations",
+          "request": {
+            "name": "Export conversations",
+            "description": {},
+            "url": {
+              "path": [
+                "conversations",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "236bf173-fae6-48bc-ae13-fd4af18e23ba",
+              "name": "Exported conversation data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de2a8fba-20f1-4065-b3f4-38254a7f7969",
+          "name": "Deliver a message",
+          "request": {
+            "name": "Deliver a message",
+            "description": {
+              "content": "Deliver an outbound message to a conversation channel.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conversations",
+                "deliver-message"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2cbd34a-05ae-483b-84d5-5747f5bd6a28",
+              "name": "Delivery result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conversations",
+                    "deliver-message"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.mavenagi-apis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b0bd3c71-2d89-4146-9278-6c314517356d",
+    "name": "Maven AGI Platform Actions Conversations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.\n\nContact Support:\n Name: Maven AGI",
+      "type": "text/plain"
+    }
+  }
+}

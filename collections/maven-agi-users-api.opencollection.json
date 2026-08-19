@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maven AGI Platform Actions Users API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create or update a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.mavenagi-apis.com/v1/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update a user"
+        },
+        {
+          "info": {
+            "name": "Get a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a user"
+        },
+        {
+          "info": {
+            "name": "Delete a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.mavenagi-apis.com/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a user"
+        },
+        {
+          "info": {
+            "name": "Search agent users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.mavenagi-apis.com/v1/agentusers/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search agent users"
+        },
+        {
+          "info": {
+            "name": "Get an agent user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.mavenagi-apis.com/v1/agentusers/:agentUserId",
+            "params": [
+              {
+                "name": "agentUserId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an agent user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
