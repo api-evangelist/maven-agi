@@ -7,6 +7,18 @@ description: Maven AGI is an enterprise AI agent platform for customer experienc
   across chat, email, voice, and SMS. The Maven Platform API lets developers build
   apps that manage conversations, knowledge, actions, users, events, and triggers,
   authenticated with an App ID and App Secret scoped to an organization and agent.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
