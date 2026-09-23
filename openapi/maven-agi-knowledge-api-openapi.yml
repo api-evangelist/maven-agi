@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Maven AGI Platform Actions Knowledge API
+  title: Maven AGI Platform Knowledge API
   version: '1.0'
   description: The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.
   contact:
@@ -250,21 +250,8 @@ paths:
                 $ref: '#/components/schemas/KnowledgeDocument'
 components:
   schemas:
-    EntityId:
+    KnowledgeBase:
       type: object
-      description: A reference identifier scoped to a type.
-      properties:
-        referenceId:
-          type: string
-        type:
-          type: string
-        appId:
-          type: string
-    KnowledgeBaseRequest:
-      type: object
-      required:
-      - knowledgeBaseId
-      - name
       properties:
         knowledgeBaseId:
           $ref: '#/components/schemas/EntityId'
@@ -272,6 +259,8 @@ components:
           type: string
         type:
           type: string
+        version:
+          type: object
     KnowledgeDocumentRequest:
       type: object
       required:
@@ -298,8 +287,21 @@ components:
           type: string
         content:
           type: string
-    KnowledgeBase:
+    EntityId:
       type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
+    KnowledgeBaseRequest:
+      type: object
+      required:
+      - knowledgeBaseId
+      - name
       properties:
         knowledgeBaseId:
           $ref: '#/components/schemas/EntityId'
@@ -307,17 +309,15 @@ components:
           type: string
         type:
           type: string
-        version:
-          type: object
   parameters:
-    KnowledgeDocumentReferenceId:
-      name: knowledgeDocumentReferenceId
+    KnowledgeBaseReferenceId:
+      name: knowledgeBaseReferenceId
       in: path
       required: true
       schema:
         type: string
-    KnowledgeBaseReferenceId:
-      name: knowledgeBaseReferenceId
+    KnowledgeDocumentReferenceId:
+      name: knowledgeDocumentReferenceId
       in: path
       required: true
       schema:

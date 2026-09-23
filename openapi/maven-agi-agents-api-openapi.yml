@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Maven AGI Platform Actions Agents API
+  title: Maven AGI Platform Agents API
   version: '1.0'
   description: The Maven AGI Platform API lets developers build apps on the Maven AGI enterprise AI agent platform. It exposes conversations, knowledge, actions, users, agents, events, triggers, app settings, and analytics. Requests authenticate with an App ID and App Secret supplied as HTTP Basic credentials, together with X-Organization-Id and X-Agent-Id headers that scope the request to a specific organization and agent. Paths in this document are relative to the /v1 base path.
   contact:
@@ -109,16 +109,6 @@ components:
       schema:
         type: string
   schemas:
-    EntityId:
-      type: object
-      description: A reference identifier scoped to a type.
-      properties:
-        referenceId:
-          type: string
-        type:
-          type: string
-        appId:
-          type: string
     Agent:
       type: object
       properties:
@@ -132,6 +122,16 @@ components:
           - DEMO
           - STAGING
           - PRODUCTION
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
   securitySchemes:
     appAuth:
       type: http

@@ -1,0 +1,30 @@
+# Front Door AI Index — maven-agi — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: maven-agi
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.mavenagi.com
+  final_host: www.mavenagi.com
+  ownership: own
+  owner: maven-agi
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 13
+  host_score: 13
+  density: 16.05
+  words: 810
+  tiers:
+    agentic: 5
+    core: 8
+    model: 0
+  ambiguous: 20
+  top_terms:
+    agent: 19
+    AI: 8
+    AI agent: 3
+    agentic: 1
+    automation: 1
+    chatbot: 1
