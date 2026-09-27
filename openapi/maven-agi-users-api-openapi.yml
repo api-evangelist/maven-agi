@@ -104,23 +104,6 @@ paths:
                 type: object
 components:
   schemas:
-    EntityId:
-      type: object
-      description: A reference identifier scoped to a type.
-      properties:
-        referenceId:
-          type: string
-        type:
-          type: string
-        appId:
-          type: string
-    User:
-      type: object
-      properties:
-        userId:
-          $ref: '#/components/schemas/EntityId'
-        defaultUserData:
-          type: object
     UserRequest:
       type: object
       required:
@@ -134,6 +117,23 @@ components:
             type: object
         data:
           type: object
+    User:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        defaultUserData:
+          type: object
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
   securitySchemes:
     appAuth:
       type: http

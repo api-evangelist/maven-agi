@@ -37,7 +37,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/maven-agi.
 tags:
 - Artificial Intelligence
 - Agents
-- Customer-Support
+- Customer Support
 - Customer Experience
 - Conversational AI
 - Knowledge
@@ -48,6 +48,7 @@ tags_raw:
 - Customer Experience
 - Conversational AI
 - Knowledge
+- Customer-Support
 created: '2026-07-01'
 modified: '2026-07-01'
 specificationVersion: '0.23'

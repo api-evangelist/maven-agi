@@ -103,25 +103,6 @@ paths:
           description: Action deleted.
 components:
   schemas:
-    EntityId:
-      type: object
-      description: A reference identifier scoped to a type.
-      properties:
-        referenceId:
-          type: string
-        type:
-          type: string
-        appId:
-          type: string
-    Action:
-      type: object
-      properties:
-        actionId:
-          $ref: '#/components/schemas/EntityId'
-        name:
-          type: string
-        description:
-          type: string
     ActionRequest:
       type: object
       required:
@@ -141,6 +122,25 @@ components:
           type: array
           items:
             type: object
+    Action:
+      type: object
+      properties:
+        actionId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        description:
+          type: string
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
   securitySchemes:
     appAuth:
       type: http

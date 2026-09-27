@@ -261,6 +261,27 @@ components:
           type: string
         version:
           type: object
+    KnowledgeBaseRequest:
+      type: object
+      required:
+      - knowledgeBaseId
+      - name
+      properties:
+        knowledgeBaseId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        type:
+          type: string
+    KnowledgeDocument:
+      type: object
+      properties:
+        knowledgeDocumentId:
+          $ref: '#/components/schemas/EntityId'
+        title:
+          type: string
+        content:
+          type: string
     KnowledgeDocumentRequest:
       type: object
       required:
@@ -278,15 +299,6 @@ components:
           type: string
         title:
           type: string
-    KnowledgeDocument:
-      type: object
-      properties:
-        knowledgeDocumentId:
-          $ref: '#/components/schemas/EntityId'
-        title:
-          type: string
-        content:
-          type: string
     EntityId:
       type: object
       description: A reference identifier scoped to a type.
@@ -296,18 +308,6 @@ components:
         type:
           type: string
         appId:
-          type: string
-    KnowledgeBaseRequest:
-      type: object
-      required:
-      - knowledgeBaseId
-      - name
-      properties:
-        knowledgeBaseId:
-          $ref: '#/components/schemas/EntityId'
-        name:
-          type: string
-        type:
           type: string
   parameters:
     KnowledgeBaseReferenceId:
