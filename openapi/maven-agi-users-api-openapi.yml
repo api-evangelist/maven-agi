@@ -117,13 +117,6 @@ components:
             type: object
         data:
           type: object
-    User:
-      type: object
-      properties:
-        userId:
-          $ref: '#/components/schemas/EntityId'
-        defaultUserData:
-          type: object
     EntityId:
       type: object
       description: A reference identifier scoped to a type.
@@ -134,6 +127,13 @@ components:
           type: string
         appId:
           type: string
+    User:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        defaultUserData:
+          type: object
   securitySchemes:
     appAuth:
       type: http

@@ -101,13 +101,6 @@ paths:
         '204':
           description: Agent deleted.
 components:
-  parameters:
-    OrganizationReferenceId:
-      name: organizationReferenceId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Agent:
       type: object
@@ -132,6 +125,13 @@ components:
           type: string
         appId:
           type: string
+  parameters:
+    OrganizationReferenceId:
+      name: organizationReferenceId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     appAuth:
       type: http

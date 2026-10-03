@@ -321,6 +321,16 @@ components:
           type: object
           additionalProperties:
             type: string
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
     ConversationMessage:
       type: object
       properties:
@@ -336,16 +346,23 @@ components:
           - SHORT
           - MEDIUM
           - LONG
-    EntityId:
+    AskRequest:
       type: object
-      description: A reference identifier scoped to a type.
+      required:
+      - conversationMessageId
+      - userId
+      - text
       properties:
-        referenceId:
+        conversationMessageId:
+          $ref: '#/components/schemas/EntityId'
+        userId:
+          $ref: '#/components/schemas/EntityId'
+        text:
           type: string
-        type:
-          type: string
-        appId:
-          type: string
+        attachments:
+          type: array
+          items:
+            type: object
     Conversation:
       type: object
       properties:
@@ -364,23 +381,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    AskRequest:
-      type: object
-      required:
-      - conversationMessageId
-      - userId
-      - text
-      properties:
-        conversationMessageId:
-          $ref: '#/components/schemas/EntityId'
-        userId:
-          $ref: '#/components/schemas/EntityId'
-        text:
-          type: string
-        attachments:
-          type: array
-          items:
-            type: object
   parameters:
     ConversationId:
       name: conversationId

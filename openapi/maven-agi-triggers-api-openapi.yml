@@ -84,6 +84,16 @@ paths:
           description: Trigger deleted.
 components:
   schemas:
+    EntityId:
+      type: object
+      description: A reference identifier scoped to a type.
+      properties:
+        referenceId:
+          type: string
+        type:
+          type: string
+        appId:
+          type: string
     Trigger:
       type: object
       properties:
@@ -94,16 +104,6 @@ components:
         description:
           type: string
         eventType:
-          type: string
-    EntityId:
-      type: object
-      description: A reference identifier scoped to a type.
-      properties:
-        referenceId:
-          type: string
-        type:
-          type: string
-        appId:
           type: string
   securitySchemes:
     appAuth:

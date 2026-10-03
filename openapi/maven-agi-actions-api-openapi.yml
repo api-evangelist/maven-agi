@@ -103,25 +103,6 @@ paths:
           description: Action deleted.
 components:
   schemas:
-    ActionRequest:
-      type: object
-      required:
-      - actionId
-      - name
-      - description
-      properties:
-        actionId:
-          $ref: '#/components/schemas/EntityId'
-        name:
-          type: string
-        description:
-          type: string
-        userInteractionRequired:
-          type: boolean
-        userFormParameters:
-          type: array
-          items:
-            type: object
     Action:
       type: object
       properties:
@@ -141,6 +122,25 @@ components:
           type: string
         appId:
           type: string
+    ActionRequest:
+      type: object
+      required:
+      - actionId
+      - name
+      - description
+      properties:
+        actionId:
+          $ref: '#/components/schemas/EntityId'
+        name:
+          type: string
+        description:
+          type: string
+        userInteractionRequired:
+          type: boolean
+        userFormParameters:
+          type: array
+          items:
+            type: object
   securitySchemes:
     appAuth:
       type: http
