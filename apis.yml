@@ -220,6 +220,9 @@ apis:
   - type: OpenCollection
     url: collections/maven-agi.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/maven-agi-capability-edges.yml
+  name: Maven AGI Business Capability Map
 - type: AgenticAccess
   url: agentic-access/maven-agi-agentic-access.yml
 - type: TrustCenter

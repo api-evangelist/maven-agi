@@ -1,0 +1,36 @@
+slug: maven-agi
+provider: Maven AGI
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Conversations
+  spec_file: maven-agi-conversations-api-openapi.yml
+  capability_id: BC-430
+  capability_id_l1: BC-430
+  capability_name: Customer Service Management
+  confidence: 0.85
+  evidence: POST /conversations/{conversationId}/ask  ask  Ask the agent a question
+  reason: Initialising customer conversations, appending messages, asking the agent questions, categorising
+    and capturing feedback — the core inbound customer contact and resolution flow across chat, email,
+    voice and SMS. Ambiguous between Customer Inquiry Management and Self-Service (chatbot) Management,
+    so only the L1 is asserted.
+- tag: Knowledge
+  spec_file: maven-agi-knowledge-api-openapi.yml
+  capability_id: BC-830
+  capability_id_l1: BC-830
+  capability_name: Knowledge Management
+  confidence: 0.75
+  evidence: PUT /knowledge  createOrUpdateKnowledgeBase  Create or update a knowledge base
+  reason: Full lifecycle of knowledge bases, knowledge documents and versioned publication (createKnowledgeDocument,
+    finalizeKnowledgeBaseVersion) — organisational knowledge capture and curation. L2 withheld as the
+    surface spans capture, curation and publication.
