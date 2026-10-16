@@ -4,14 +4,12 @@
     {
       "source": "https://mavenagi.com/resources",
       "feed_url": "https://mavenagi.com/resources",
-      "title": "Maven AGI Resources",
+      "title": "",
       "saved": 0,
-      "error": "parse_failed",
-      "nature": "undetermined",
-      "nature_basis": null
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:15:37Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 15,
   "feed_nature": "undetermined",
   "feed_nature_basis": null,
