@@ -1,8 +1,10 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- freshworks/integrations/freshworks-integration-edges.yml
 - https://azuremarketplace.microsoft.com/
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+- zendesk/integrations/zendesk-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -39,5 +41,40 @@ edges:
   category: Microsoft Teams app
   publisher_verified:
   - Microsoft 365 Publisher Attestation
+- partner_name: Freshworks (own)
+  partner: freshworks
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.freshworks.com/apps/mavenagi_copilot
+  mirror_of: freshworks/integrations/freshworks-integration-edges.yml
+  apps:
+  - Maven AGI Copilot
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  publisher_verified:
+  - Verified by Freshworks
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/1088265/maven-agi-copilot/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - Maven AGI Copilot
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+  category: AI and Bots
 source:
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
