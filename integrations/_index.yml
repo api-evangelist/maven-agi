@@ -15,6 +15,81 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: maven-agi-cloud-security-alliance-star-registry
+  label: Cloud Security Alliance STAR Registry
+  partner_name: Cloud Security Alliance STAR Registry
+  category: Cloud security assurance
+  type: register
+  channel: standard-directory
+  evidence: https://cloudsecurityalliance.org/star/registry/maven-agi-inc/services/maven-agi-inc
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
+    spec_file: null
+    standard: CSA STAR
+    role: star-level-2
+    registered_name: Maven AGI Inc.
+    registry_id: maven-agi-inc
+    service_url: https://www.mavenagi.com
+    matched_domain: mavenagi.com
+    matched_by: domain
+    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
+    levels:
+    - ISO/IEC 42001
+    - Partner Entries
+    - STAR Level 1
+    - STAR for AI Level 1
+    - STAR for AI Level 2
+    certified_products:
+    - product: STAR for AI Level 2
+      lapsed: false
+      latest: null
+    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
+      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
+      = every instance marked (Deprecated) by the registry; service counts never recorded
+    detected_by: sweep-compliance-assurance.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: maven-agi-salesforce-appexchange-security-review
+  label: Salesforce AppExchange Security Review
+  partner: salesforce
+  partner_name: Salesforce AppExchange Security Review
+  category: AppExchange security-reviewed publisher
+  type: register
+  channel: standard-directory
+  evidence: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Salesforce AppExchange public listings (listing JSON) under the AgentExchange Security Review requirement
+    standard: Salesforce AppExchange Security Review
+    spec_file: null
+    role: security-reviewed-publisher
+    registered_name: Maven AGI, Inc
+    register_country: US
+    matched_domain: mavenagi.com
+    matched_by: domain
+    identity_source: the listing's own publisher.website (no lookup)
+    certified_products:
+    - product: Salesforce package (security-reviewed)
+      product_type: force/package
+      certifier: Salesforce (AgentExchange / AppExchange Security Review)
+      listings: 1
+      example_listing: https://appexchange.salesforce.com/appxListingDetail?listingId=dfb3a0ea-5aeb-45f7-950e-8fab432e8378
+      latest_approval: '2024-04-08'
+      lapsed: false
+      lapsed_note: the listing JSON prints solution.securityReview.approvalDate on a LIVE public listing; Salesforce
+        publishes no expiry, so no entry is marked lapsed (latest_approval is context)
+    signal_note: certified_products = ONE entry per product type (listing technology) with a printed securityReview.approvalDate,
+      never per listing or version; a listing with no approval date reads nothing; listing counts / versions are
+      context
+    requirement: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+    detected_by: sweep-salesforce-appexchange.py
+    detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
 - slug: maven-agi-microsoft-teams-own
   label: Microsoft Teams (own)
   partner: microsoft-teams
@@ -53,40 +128,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
-- slug: maven-agi-cloud-security-alliance-star-registry
-  label: Cloud Security Alliance STAR Registry
-  partner_name: Cloud Security Alliance STAR Registry
-  category: Cloud security assurance
-  type: register
-  channel: standard-directory
-  evidence: https://cloudsecurityalliance.org/star/registry/maven-agi-inc/services/maven-agi-inc
+- slug: maven-agi-salesforce-own
+  label: Salesforce (own)
+  partner: salesforce
+  partner_name: Salesforce (own)
+  category: agentProductivity
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://appexchange.salesforce.com/appxListingDetail?listingId=dfb3a0ea-5aeb-45f7-950e-8fab432e8378
   source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
-    spec_file: null
-    standard: CSA STAR
-    role: star-level-2
-    registered_name: Maven AGI Inc.
-    registry_id: maven-agi-inc
-    service_url: https://www.mavenagi.com
-    matched_domain: mavenagi.com
-    matched_by: domain
-    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
-    levels:
-    - ISO/IEC 42001
-    - Partner Entries
-    - STAR Level 1
-    - STAR for AI Level 1
-    - STAR for AI Level 2
-    certified_products:
-    - product: STAR for AI Level 2
-      lapsed: false
-      latest: null
-    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
-      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
-      = every instance marked (Deprecated) by the registry; service counts never recorded
-    detected_by: sweep-compliance-assurance.py
-    detected: '2026-10-20'
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

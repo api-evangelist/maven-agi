@@ -7,6 +7,13 @@ checked:
 - https://eucoc.cloud/en/public-register/list-of-adherent-services
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 - zendesk/integrations/zendesk-integration-edges.yml
+- https://api.appexchange.salesforce.com/recommendations/v3/listings?type=apps
+- https://api.appexchange.salesforce.com/recommendations/v3/listings?type=consultants
+- https://appexchange.salesforce.com/
+- https://appexchange.salesforce.com/consulting
+- https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+- https://slack.com/marketplace
+- salesforce/integrations/salesforce-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -24,6 +31,80 @@ edges:
   seller_name: Maven AGI
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: Cloud Security Alliance STAR Registry
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://cloudsecurityalliance.org/star/registry/maven-agi-inc/services/maven-agi-inc
+  category: Cloud security assurance
+  contract_reference:
+    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
+    spec_file: null
+    standard: CSA STAR
+    role: star-level-2
+    registered_name: Maven AGI Inc.
+    registry_id: maven-agi-inc
+    service_url: https://www.mavenagi.com
+    matched_domain: mavenagi.com
+    matched_by: domain
+    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
+    levels:
+    - ISO/IEC 42001
+    - Partner Entries
+    - STAR Level 1
+    - STAR for AI Level 1
+    - STAR for AI Level 2
+    certified_products:
+    - product: STAR for AI Level 2
+      lapsed: false
+      latest: null
+    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
+      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
+      = every instance marked (Deprecated) by the registry; service counts never recorded
+    detected_by: sweep-compliance-assurance.py
+    detected: '2026-10-20'
+  detected_by: sweep-compliance-assurance.py
+  first_seen: '2026-10-20'
+- partner_name: Salesforce AppExchange Security Review
+  partner: salesforce
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+  category: AppExchange security-reviewed publisher
+  contract_reference:
+    register: Salesforce AppExchange public listings (listing JSON) under the AgentExchange Security Review requirement
+    standard: Salesforce AppExchange Security Review
+    spec_file: null
+    role: security-reviewed-publisher
+    registered_name: Maven AGI, Inc
+    register_country: US
+    matched_domain: mavenagi.com
+    matched_by: domain
+    identity_source: the listing's own publisher.website (no lookup)
+    certified_products:
+    - product: Salesforce package (security-reviewed)
+      product_type: force/package
+      certifier: Salesforce (AgentExchange / AppExchange Security Review)
+      listings: 1
+      example_listing: https://appexchange.salesforce.com/appxListingDetail?listingId=dfb3a0ea-5aeb-45f7-950e-8fab432e8378
+      latest_approval: '2024-04-08'
+      lapsed: false
+      lapsed_note: the listing JSON prints solution.securityReview.approvalDate on a LIVE public listing; Salesforce
+        publishes no expiry, so no entry is marked lapsed (latest_approval is context)
+    signal_note: certified_products = ONE entry per product type (listing technology) with a printed securityReview.approvalDate,
+      never per listing or version; a listing with no approval date reads nothing; listing counts / versions are
+      context
+    requirement: https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/security_review_overview.htm
+    detected_by: sweep-salesforce-appexchange.py
+    detected: '2026-10-21'
+  detected_by: sweep-salesforce-appexchange.py
+  first_seen: '2026-10-21'
 - partner_name: Microsoft Teams (own)
   partner: microsoft-teams
   partner_match: mirror
@@ -78,42 +159,22 @@ edges:
   detected: '2026-10-19'
   detected_by: mirror-platform-listings.py
   category: AI and Bots
-- partner_name: Cloud Security Alliance STAR Registry
-  partner: null
-  partner_match: register
-  type: register
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://cloudsecurityalliance.org/star/registry/maven-agi-inc/services/maven-agi-inc
-  category: Cloud security assurance
-  contract_reference:
-    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
-    spec_file: null
-    standard: CSA STAR
-    role: star-level-2
-    registered_name: Maven AGI Inc.
-    registry_id: maven-agi-inc
-    service_url: https://www.mavenagi.com
-    matched_domain: mavenagi.com
-    matched_by: domain
-    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
-    levels:
-    - ISO/IEC 42001
-    - Partner Entries
-    - STAR Level 1
-    - STAR for AI Level 1
-    - STAR for AI Level 2
-    certified_products:
-    - product: STAR for AI Level 2
-      lapsed: false
-      latest: null
-    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
-      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
-      = every instance marked (Deprecated) by the registry; service counts never recorded
-    detected_by: sweep-compliance-assurance.py
-    detected: '2026-10-20'
-  detected_by: sweep-compliance-assurance.py
-  first_seen: '2026-10-20'
+- partner_name: Salesforce (own)
+  partner: salesforce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appexchange.salesforce.com/appxListingDetail?listingId=dfb3a0ea-5aeb-45f7-950e-8fab432e8378
+  mirror_of: salesforce/integrations/salesforce-integration-edges.yml
+  apps:
+  - Maven Co-Pilot
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: agentProductivity
 source:
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
