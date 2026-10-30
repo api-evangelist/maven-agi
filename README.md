@@ -1,4 +1,4 @@
-# Maven AGI (maven-agi)
+# Maven AGI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,233 +66,133 @@
 
 Maven AGI is an enterprise AI agent platform for customer experience. Its AI agents answer questions, take actions, and improve with every interaction across chat, email, voice, and SMS. The Maven Platform API lets developers build apps that manage conversations, knowledge, actions, users, events, and triggers, authenticated with an App ID and App Secret scoped to an organization and agent.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/maven-agi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/maven-agi/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Agents · Customer Service · Customer Experience · Conversational AI · Knowledge
 
-## Authentication
+## Maven AGI on APIs.io
 
-The Maven Platform API uses HTTP Basic authentication with your **App ID** as the username and **App Secret** as the password, obtained from the Developer Portal. Every request also sends `X-Organization-Id` and `X-Agent-Id` headers to scope the call to a specific organization and agent.
+Everything profiled for Maven AGI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/maven-agi/](https://apis.io/providers/maven-agi/)** — or go straight to one of the APIs or properties below.
 
-- **Base URL (Production):** `https://www.mavenagi-apis.com/v1`
-- **Base URL (Staging):** `https://www.staging.mavenagi-apis.com/v1`
+### APIs (9)
 
-## Tags
+- [Maven AGI Actions API](https://apis.io/apis/maven-agi/maven-agi-actions-api/) — The Actions API from Maven AGI — 3 operation(s) for actions.
+- [Maven AGI Agents API](https://apis.io/apis/maven-agi/maven-agi-agents-api/) — The Agents API from Maven AGI — 3 operation(s) for agents.
+- [Maven AGI Analytics API](https://apis.io/apis/maven-agi/maven-agi-analytics-api/) — The Analytics API from Maven AGI — 4 operation(s) for analytics.
+- [Maven AGI App Settings API](https://apis.io/apis/maven-agi/maven-agi-app-settings-api/) — The App Settings API from Maven AGI — 2 operation(s) for app settings.
+- [Maven AGI Conversations API](https://apis.io/apis/maven-agi/maven-agi-conversations-api/) — The Conversations API from Maven AGI — 12 operation(s) for conversations.
+- [Maven AGI Events API](https://apis.io/apis/maven-agi/maven-agi-events-api/) — The Events API from Maven AGI — 4 operation(s) for events.
+- [Maven AGI Knowledge API](https://apis.io/apis/maven-agi/maven-agi-knowledge-api/) — The Knowledge API from Maven AGI — 12 operation(s) for knowledge.
+- [Maven AGI Triggers API](https://apis.io/apis/maven-agi/maven-agi-triggers-api/) — The Triggers API from Maven AGI — 2 operation(s) for triggers.
+- [Maven AGI Users API](https://apis.io/apis/maven-agi/maven-agi-users-api/) — The Users API from Maven AGI — 4 operation(s) for users.
 
-- AI
-- Agents
-- Customer Support
-- Customer Experience
-- Conversational AI
-- Knowledge
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-01
-- **Modified:** 2026-07-01
+#### Agentic access (1)
 
-## APIs
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Maven AGI Conversation API
+- [Maven Agi Agentic Access](https://apis.io/agentic-access/maven-agi/maven-agi-agentic-access/)
 
-Initialize conversations, append messages, ask questions of the agent (streaming or non-streaming), categorize, submit action forms, manage conversation metadata, deliver messages, search, and export conversations.
+#### Collections (10)
 
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Maven AGI Platform API](https://apis.io/collections/maven-agi/open-maven-agi/)
+- [Maven AGI Platform Actions API](https://apis.io/collections/maven-agi/open-maven-agi-actions-api/)
+- [Maven AGI Platform Actions Agents API](https://apis.io/collections/maven-agi/open-maven-agi-agents-api/)
+- [Maven AGI Platform Actions Analytics API](https://apis.io/collections/maven-agi/open-maven-agi-analytics-api/)
+- [Maven AGI Platform Actions App Settings API](https://apis.io/collections/maven-agi/open-maven-agi-app-settings-api/)
+- [Maven AGI Platform Actions Conversations API](https://apis.io/collections/maven-agi/open-maven-agi-conversations-api/)
+- [Maven AGI Platform Actions Events API](https://apis.io/collections/maven-agi/open-maven-agi-events-api/)
+- [Maven AGI Platform Actions Knowledge API](https://apis.io/collections/maven-agi/open-maven-agi-knowledge-api/)
+- [Maven AGI Platform Actions Triggers API](https://apis.io/collections/maven-agi/open-maven-agi-triggers-api/)
+- [Maven AGI Platform Actions Users API](https://apis.io/collections/maven-agi/open-maven-agi-users-api/)
 
-- Conversations
-- Ask
-- Messages
-- Chat
+#### Security (3)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Maven Agi Authentication](https://apis.io/security/maven-agi/maven-agi-authentication/)
+- [Maven Agi Domain Security](https://apis.io/security/maven-agi/maven-agi-domain-security/)
+- [Maven Agi Trust Center](https://apis.io/security/maven-agi/maven-agi-trust-center/)
 
-### Maven AGI Knowledge API
+#### Plans and pricing (1)
 
-Create and version knowledge bases, add and refresh knowledge documents, and search knowledge bases and documents that ground the agent's answers.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
+- [Maven Agi Plans Pricing](https://apis.io/plans/maven-agi/maven-agi-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- Knowledge
-- Documents
-- Knowledge Bases
-- RAG
+Published request limits.
 
-#### Properties
+- [Maven Agi Rate Limits](https://apis.io/rate-limits/maven-agi/maven-agi-rate-limits/)
 
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-### Maven AGI Actions API
+What the API costs to run, by operation.
 
-Register, search, retrieve, patch, and delete Actions - the parameterized operations against external business systems that agents can call to get work done during a conversation.
+- [Maven Agi Finops](https://apis.io/finops/maven-agi/maven-agi-finops/)
 
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Actions
-- Tools
-- Function Calling
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maven AGI Users API
-
-Create or update users, retrieve and delete users, and read and search the resolved agent-user identities associated with an agent.
-
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
-
-#### Tags
-
-- Users
-- Agent Users
-- Identity
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maven AGI Agents API
-
-Create, list, retrieve, patch, and delete agents within an organization, the top-level configuration that defines an AI agent's behavior and scope.
-
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
-
-#### Tags
-
-- Agents
-- Organizations
-- Configuration
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maven AGI Events API
-
-Create, retrieve, search, and export events - the timeline of activity and signals emitted by agents and users that feed analytics and triggers.
-
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
-
-#### Tags
-
-- Events
-- Analytics
-- Timeline
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maven AGI Triggers API
-
-Create or update, retrieve, patch, search, and delete event triggers that automate downstream behavior in response to conversation and event activity.
-
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
-
-#### Tags
-
-- Triggers
-- Automation
-- Webhooks
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maven AGI App Settings API
-
-Read and patch the per-app settings that a Maven app uses to store its installation configuration and search across app-scoped settings.
-
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
-
-#### Tags
-
-- Apps
-- Settings
-- Configuration
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maven AGI Analytics API
-
-Query conversation, event, feedback, and agent-user tables and charts to build reporting on agent performance, deflection, and customer outcomes.
-
-- **Human URL:** [https://docs.mavenagi.com/maven-platform](https://docs.mavenagi.com/maven-platform)
-- **Base URL:** `https://www.mavenagi-apis.com/v1`
-
-#### Tags
-
-- Analytics
-- Reporting
-- Charts
-
-#### Properties
-
-- [Documentation](https://docs.mavenagi.com)
-- [API Reference](https://github.com/mavenagi/mavenagi-python/blob/main/reference.md)
-- [OpenAPI](openapi/maven-agi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maven-agi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maven-agi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/mavenagi)
-- [LinkedIn](https://www.linkedin.com/company/mavenagi)
 - [Website](https://www.mavenagi.com)
 - [Documentation](https://docs.mavenagi.com)
-- [Plans](plans/maven-agi-plans-pricing.yml)
-- [Rate Limits](rate-limits/maven-agi-rate-limits.yml)
-- [Fin Ops](finops/maven-agi-finops.yml)
+- [Blog](https://mavenagi.com/resources)
+- [GitHub](https://github.com/mavenagi)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 20.2 |
+| Access clarity | 13.2 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.5** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/maven-agi/](https://apis.io/providers/maven-agi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Maven AGI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/maven-agi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
